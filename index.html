@@ -219,18 +219,6 @@
   .price-row .p-val{font-family:'Nanum Myeongjo', serif; font-weight:700; color:var(--brass-deep); white-space:nowrap;}
   .price-note{text-align:center; font-size:12.5px; color:var(--stone); margin-top:18px;}
 
-  /* ---------- BEFORE/AFTER ---------- */
-  .ba-wrap{max-width:640px; margin:0 auto;}
-  .ba-slider{position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; border:1px solid var(--line); cursor:ew-resize;}
-  .ba-after, .ba-before{position:absolute; inset:0; width:100%; height:100%;}
-  .ba-before{clip-path:inset(0 50% 0 0);}
-  .ba-label{position:absolute; top:14px; font-family:'Nanum Myeongjo',serif; font-weight:700; font-size:13px; padding:5px 14px; border-radius:999px; background:rgba(255,255,255,.85); color:var(--charcoal);}
-  .ba-label.before{left:14px;}
-  .ba-label.after{right:14px;}
-  .ba-handle{position:absolute; top:0; bottom:0; left:50%; width:2px; background:#fff; transform:translateX(-50%); box-shadow:0 0 0 1px rgba(0,0,0,.1);}
-  .ba-handle::after{content:"⟷"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:38px; height:38px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:15px; color:var(--charcoal); box-shadow:0 4px 12px rgba(0,0,0,.15);}
-  .ba-range{position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; margin:0;}
-
   /* ---------- REVIEWS ---------- */
   .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:36px;}
   .review-card{background:#fff; border:1px solid var(--line); border-radius:6px; padding:26px;}
@@ -410,27 +398,6 @@
     <div class="price-tabs reveal" id="priceTabs"></div>
     <div id="pricePanels" class="reveal"></div>
     <p class="price-note">※ 위 가격은 예시이며, 정확한 금액은 매장 문의 및 방문 상담 후 확정됩니다.</p>
-  </div>
-</section>
-
-<!-- ===== BEFORE / AFTER ===== -->
-<section class="bg-sand">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" style="justify-content:center;">Before &amp; After</p>
-      <h2>스타일 변화</h2>
-      <p>슬라이더를 좌우로 움직여 시술 전후를 비교해보세요.</p>
-    </div>
-    <div class="ba-wrap reveal">
-      <div class="ba-slider" id="baSlider">
-        <svg class="ba-after" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#EFE9DE"/><circle cx="200" cy="150" r="90" fill="none" stroke="#A9884F" stroke-width="1.4" opacity=".6"/><text x="200" y="155" text-anchor="middle" font-family="Nanum Myeongjo, serif" font-size="15" fill="#8F6E3C">AFTER</text></svg>
-        <svg class="ba-before" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#DED3BE"/><circle cx="200" cy="150" r="90" fill="none" stroke="#2B2620" stroke-width="1" opacity=".3"/><text x="200" y="155" text-anchor="middle" font-family="Nanum Myeongjo, serif" font-size="15" fill="#2B2620" opacity=".6">BEFORE</text></svg>
-        <div class="ba-handle" id="baHandle"></div>
-        <span class="ba-label before">Before</span>
-        <span class="ba-label after">After</span>
-        <input type="range" class="ba-range" id="baRange" min="0" max="100" value="50" aria-label="시술 전후 비교 슬라이더">
-      </div>
-    </div>
   </div>
 </section>
 
@@ -831,23 +798,6 @@ function initReveal(){
 }
 
 /* =========================================================
-   BEFORE / AFTER SLIDER
-========================================================= */
-function initBeforeAfter(){
-  const range = document.getElementById('baRange');
-  const before = document.querySelector('.ba-before');
-  const handle = document.getElementById('baHandle');
-  if(!range) return;
-  const update = () => {
-    const v = range.value;
-    before.style.clipPath = `inset(0 ${100-v}% 0 0)`;
-    handle.style.left = v + '%';
-  };
-  range.addEventListener('input', update);
-  update();
-}
-
-/* =========================================================
    GA4 / Meta Pixel EVENT BINDING
 ========================================================= */
 function trackEvent(name, params){
@@ -890,7 +840,6 @@ document.addEventListener('DOMContentLoaded', () => {
   bindReserveButtons();
   initHeaderScroll();
   initReveal();
-  initBeforeAfter();
   initEventBinding();
 });
 </script>
