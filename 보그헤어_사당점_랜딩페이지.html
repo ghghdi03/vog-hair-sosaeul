@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOG HAIR 사당점 | 보그헤어 사당점</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F2E8;
+    --cream-deep:#EFE4D2;
+    --ink:#2C2620;
+    --ink-soft:#8A8074;
+    --clay:#C08A5E;
+    --clay-deep:#A16A3E;
+    --clay-pale:#E9CBAE;
+    --charcoal:#332C25;
+    --line:rgba(44,38,32,0.13);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream); color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif; font-weight:300;
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+    font-size:15px;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:'Noto Serif KR', serif; font-weight:700; letter-spacing:-0.01em; color:var(--ink);}
+  .eyebrow{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:15px;
+    letter-spacing:0.1em; color:var(--clay-deep);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--clay);}
+
+  /* ---------- NAV ---------- */
+  header{position:sticky; top:0; z-index:40; background:rgba(248,242,232,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1120px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Noto Serif KR', serif; font-weight:700; font-size:17px;}
+  .brand-mark{width:30px; height:30px; border:1.3px solid var(--clay); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  .brand span{color:var(--clay-deep); font-weight:500;}
+  .nav-cta{border:1px solid var(--ink); padding:10px 22px; border-radius:999px; font-size:13.5px; font-weight:500; transition:all .2s ease;}
+  .nav-cta:hover{background:var(--ink); color:var(--cream);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 0 0;}
+  .hero-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:56px; align-items:center; padding-bottom:70px;}
+  .hero-frame{
+    aspect-ratio:3/3.6; border-radius:260px 260px 8px 8px; overflow:hidden;
+    background:linear-gradient(160deg, var(--clay-pale), var(--cream-deep) 70%);
+    position:relative; border:1px solid var(--line);
+  }
+  .hero-frame svg{position:absolute; inset:0; width:100%; height:100%;}
+  .hero h1{font-size:clamp(30px,4.2vw,46px); line-height:1.28; margin:16px 0 22px;}
+  .hero h1 em{font-style:normal; color:var(--clay-deep);}
+  .hero-sub{color:var(--ink-soft); max-width:42ch; margin-bottom:30px; font-weight:400;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink); color:var(--cream); padding:15px 30px; border-radius:999px;
+    font-weight:500; font-size:14.5px; display:inline-flex; align-items:center; gap:8px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn-primary:hover{background:var(--clay-deep); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--ink); padding:14px 26px; border-radius:999px;
+    font-weight:400; font-size:14.5px; transition:border-color .2s ease, color .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--clay-deep); color:var(--clay-deep);}
+
+  .info-strip{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--cream-deep);}
+  .info-list{display:flex; flex-wrap:wrap; max-width:1120px; margin:0 auto;}
+  .info-item{flex:1 1 220px; padding:20px 32px; display:flex; align-items:center; gap:12px; border-right:1px solid var(--line); font-size:13.5px;}
+  .info-item:last-child{border-right:none;}
+  .info-item strong{display:block; font-size:12.5px; color:var(--ink-soft); font-weight:500; margin-bottom:2px;}
+  .info-icon{width:19px; height:19px; flex:none; color:var(--clay-deep);}
+
+  section{padding:96px 0;}
+
+  /* ---------- ABOUT / PREMIUM SPLIT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;}
+  .about-imgs{position:relative; height:420px;}
+  .about-sq{position:absolute; left:0; top:40px; width:44%; aspect-ratio:1/1.05; background:var(--cream-deep); border:1px solid var(--line);}
+  .about-arch{position:absolute; right:0; top:0; width:58%; height:100%; border-radius:180px 180px 8px 8px; overflow:hidden; background:linear-gradient(170deg,#fff,var(--clay-pale)); border:1px solid var(--line);}
+  .about-sq svg, .about-arch svg{width:100%; height:100%;}
+  .about-text h2{font-size:clamp(26px,3.4vw,38px); margin:16px 0 18px; line-height:1.3;}
+  .about-text p{color:var(--ink-soft); max-width:46ch; margin-bottom:28px;}
+
+  /* ---------- SERVICE GALLERY ---------- */
+  .gallery-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:44px; flex-wrap:wrap; gap:16px;}
+  .gallery-head h2{font-size:clamp(24px,3vw,32px);}
+  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .g-card{position:relative; aspect-ratio:3/4; overflow:hidden; border-radius:6px; border:1px solid var(--line);}
+  .g-card .g-bg{position:absolute; inset:0;}
+  .g-card .g-fade{position:absolute; inset:0; background:linear-gradient(180deg, rgba(44,38,32,0) 40%, rgba(44,38,32,0.72) 100%);}
+  .g-card .g-content{position:absolute; left:0; right:0; bottom:0; padding:24px; color:#fff;}
+  .g-card .g-title{font-family:'Noto Serif KR', serif; font-weight:700; font-size:21px; margin-bottom:10px;}
+  .g-chips{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
+  .g-chip{font-size:11.5px; padding:4px 10px; border:1px solid rgba(255,255,255,0.55); border-radius:999px; font-weight:400;}
+  .g-price{font-family:'Noto Serif KR', serif; font-weight:700; font-size:15px; color:var(--clay-pale);}
+
+  /* ---------- DARK SPLIT ---------- */
+  .split{background:var(--charcoal); color:#EFE7D9; padding:0;}
+  .split-grid{display:grid; grid-template-columns:1fr 1fr;}
+  .split-left{padding:96px 56px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden;}
+  .split-left .eyebrow{color:var(--clay-pale);}
+  .split-left .eyebrow::before{background:var(--clay-pale);}
+  .split-left h2{color:#F8F2E8; font-size:clamp(24px,3vw,32px); margin:16px 0 18px;}
+  .split-left p{color:#C9BDA9; max-width:40ch; font-weight:400;}
+  .split-left .deco{position:absolute; right:-40px; bottom:-40px; opacity:0.5;}
+  .split-right{display:flex; flex-direction:column;}
+  .split-block{flex:1; padding:56px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; flex-direction:column; justify-content:center;}
+  .split-block:last-child{border-bottom:none;}
+  .split-block:nth-child(1){background:#3B332B;}
+  .split-block:nth-child(2){background:var(--clay-deep);}
+  .split-block h3{font-family:'Noto Serif KR', serif; font-size:21px; color:#fff; margin-bottom:10px;}
+  .split-block p{color:rgba(255,255,255,0.78); font-size:13.5px; margin-bottom:16px; font-weight:400;}
+  .split-block .view-more{font-size:12.5px; letter-spacing:0.05em; border-bottom:1px solid currentColor; padding-bottom:2px; color:#fff; align-self:flex-start;}
+
+  /* ---------- CUSTOMER CENTER ---------- */
+  .cc-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:flex-start;}
+  .cc-title{font-size:clamp(28px,4vw,42px); line-height:1.15; margin-bottom:18px;}
+  .cc-sub{color:var(--ink-soft); margin-bottom:32px; max-width:34ch;}
+  .cc-icons{display:flex; gap:16px; flex-wrap:wrap;}
+  .cc-icon-item{text-align:center; width:76px;}
+  .cc-icon-circle{width:64px; height:64px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; margin:0 auto 10px; color:var(--clay-deep); transition:border-color .2s ease, background .2s ease;}
+  .cc-icon-item:hover .cc-icon-circle{border-color:var(--clay-deep); background:var(--cream-deep);}
+  .cc-icon-item span{font-size:12px; color:var(--ink-soft);}
+
+  .cc-panel{background:var(--cream-deep); border:1px solid var(--line); padding:36px;}
+  .cc-phone-label{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .cc-phone-label .info-icon{color:var(--clay-deep);}
+  .cc-phone-label span{font-size:13px; color:var(--ink-soft);}
+  .cc-cta-link{font-family:'Noto Serif KR', serif; font-weight:700; font-size:26px; color:var(--clay-deep); display:block; margin-bottom:24px;}
+  .cc-hours{list-style:none; margin-bottom:26px;}
+  .cc-hours li{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:13.5px;}
+  .cc-hours li:last-child{border-bottom:none;}
+  .cc-hours .d{color:var(--ink-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:34px 0; text-align:center; font-size:12px; color:var(--ink-soft); border-top:1px solid var(--line);}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr; gap:40px;}
+    .about-imgs{height:320px; margin-bottom:8px;}
+    .gallery{grid-template-columns:1fr;}
+    .split-grid{grid-template-columns:1fr;}
+    .split-left{padding:64px 32px;}
+    .split-block{padding:40px 32px;}
+    .cc-grid{grid-template-columns:1fr;}
+    .info-item{border-right:none; border-bottom:1px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="brand-mark">V</span>VOG HAIR <span>사당점</span></div>
+    <a class="nav-cta" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">예약하기</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-frame">
+      <svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="70" fill="none" stroke="#A16A3E" stroke-width="1.4" opacity="0.5"/>
+        <g stroke="#332C25" stroke-width="2" stroke-linecap="round" fill="none" transform="translate(118,130) rotate(-16)">
+          <circle cx="0" cy="0" r="7"/><circle cx="0" cy="30" r="7"/>
+          <line x1="5" y1="5" x2="55" y2="55"/><line x1="5" y1="25" x2="55" y2="-20"/>
+        </g>
+        <path d="M100 240 C 125 215, 150 265, 175 240 S 205 205, 230 240" stroke="#C08A5E" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <text x="150" y="300" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#8A8074">Depuis 1979, Paris</text>
+      </svg>
+    </div>
+    <div>
+      <p class="eyebrow">VOG HAIR · SADANG</p>
+      <h1>사당역 11번 출구,<br><em>1979년 파리</em>에서 시작된 헤어살롱</h1>
+      <p class="hero-sub">얼굴형과 라이프스타일에 맞춘 상담 중심의 시술로, 원장부터 디자이너까지 함께 만듭니다.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">예약하기 →</a>
+        <a class="btn-ghost" href="#location">오시는 길 보기</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-strip">
+    <div class="wrap info-list">
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><strong>영업시간</strong>매일 10:00 – 20:00</div>
+      </div>
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        <div><strong>위치</strong>사당역 11번 출구 인근</div>
+      </div>
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="9" width="18" height="9" rx="1.4"/><path d="M6 9V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><circle cx="7.5" cy="18" r="1.1"/><circle cx="16.5" cy="18" r="1.1"/></svg>
+        <div><strong>주차</strong>매장 이용 시 주차 가능</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-imgs reveal">
+      <div class="about-sq">
+        <svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#EFE4D2"/><path d="M25 70 C35 55 45 60 50 50 C55 60 65 55 75 70" stroke="#A16A3E" stroke-width="1.6" fill="none"/></svg>
+      </div>
+      <div class="about-arch">
+        <svg viewBox="0 0 100 130"><rect width="100" height="130" fill="url(#g1)"/><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#E9CBAE"/></linearGradient></defs><circle cx="50" cy="55" r="20" fill="none" stroke="#C08A5E" stroke-width="1"/></svg>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <p class="eyebrow">About VOG HAIR</p>
+      <h2>PREMIUM<br>VOG HAIR SADANG</h2>
+      <p>1979년 파리에서 출발한 보그헤어의 상담 노하우를, 사당점에서 그대로 경험해보세요. 컷 하나에도 이유가 있는 시술을 지향합니다.</p>
+      <a class="btn-ghost" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">자세히 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:var(--cream-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="gallery-head reveal">
+      <div>
+        <p class="eyebrow">Service Menu</p>
+        <h2>사당점 헤어 메뉴</h2>
+      </div>
+      <p style="color:var(--ink-soft); font-size:13px; max-width:32ch;">모발 길이·상태 및 디자이너 지정에 따라 가격이 달라질 수 있어요. 방문 상담 후 최종 확정됩니다.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="g-card">
+        <div class="g-bg" style="background:linear-gradient(160deg,#DCC6A8,#B98F65);"></div>
+        <div class="g-fade"></div>
+        <div class="g-content">
+          <div class="g-title">컷</div>
+          <div class="g-chips"><span class="g-chip">상담 컷</span><span class="g-chip">디자인 컷</span></div>
+          <div class="g-price">25,000원 ~</div>
+        </div>
+      </div>
+      <div class="g-card">
+        <div class="g-bg" style="background:linear-gradient(160deg,#C9AA8C,#9C6B45);"></div>
+        <div class="g-fade"></div>
+        <div class="g-content">
+          <div class="g-title">염색</div>
+          <div class="g-chips"><span class="g-chip">리터치</span><span class="g-chip">전체 염색</span></div>
+          <div class="g-price">100,000원 ~</div>
+        </div>
+      </div>
+      <div class="g-card">
+        <div class="g-bg" style="background:linear-gradient(160deg,#D8BFA0,#A87850);"></div>
+        <div class="g-fade"></div>
+        <div class="g-content">
+          <div class="g-title">펌</div>
+          <div class="g-chips"><span class="g-chip">디지털펌</span><span class="g-chip">볼륨펌</span></div>
+          <div class="g-price">150,000원 ~</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="split" style="padding:0;">
+  <div class="split-grid">
+    <div class="split-left reveal">
+      <p class="eyebrow">Our Team</p>
+      <h2>사당점을 이끄는 사람들</h2>
+      <p>원장, 점장, 실장, 디자이너가 함께 상담부터 시술까지 책임집니다. 브랜드 표준 컨설팅으로 어느 시술자에게 맡겨도 같은 만족을 드립니다.</p>
+      <svg class="deco" width="220" height="220" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="100" stroke="#C08A5E" stroke-width="1"/></svg>
+    </div>
+    <div class="split-right">
+      <div class="split-block reveal">
+        <h3>예약 안내</h3>
+        <p>홈페이지에서 원하는 날짜와 시술을 선택해 간편하게 예약하세요.</p>
+        <a class="view-more" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">예약하러 가기</a>
+      </div>
+      <div class="split-block reveal">
+        <h3>찾아오시는 길</h3>
+        <p>사당역 11번 출구 인근, 매장 이용 시 주차 가능합니다.</p>
+        <a class="view-more" href="#location">위치 확인하기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap cc-grid">
+    <div class="reveal">
+      <p class="eyebrow">Customer Center</p>
+      <h2 class="cc-title">CUSTOMER<br>Center</h2>
+      <p class="cc-sub">보그헤어 사당점의 주요 시술과 이용 안내를 확인하세요.</p>
+      <div class="cc-icons">
+        <div class="cc-icon-item">
+          <div class="cc-icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M6 18L18 6"/><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/></svg></div>
+          <span>컷</span>
+        </div>
+        <div class="cc-icon-item">
+          <div class="cc-icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v10"/><circle cx="12" cy="17" r="4"/></svg></div>
+          <span>염색</span>
+        </div>
+        <div class="cc-icon-item">
+          <div class="cc-icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12c2-4 6-4 8 0s6 4 8 0"/><path d="M4 17c2-4 6-4 8 0s6 4 8 0"/></svg></div>
+          <span>펌</span>
+        </div>
+        <div class="cc-icon-item">
+          <div class="cc-icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div>
+          <span>오시는 길</span>
+        </div>
+      </div>
+    </div>
+    <div class="cc-panel reveal">
+      <div class="cc-phone-label">
+        <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.4 12.4 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        <span>보그헤어 사당점 예약</span>
+      </div>
+      <a class="cc-cta-link" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">홈페이지에서 바로 예약하기 →</a>
+      <ul class="cc-hours">
+        <li><span class="d">영업시간</span><span>매일 10:00 – 20:00</span></li>
+        <li><span class="d">위치</span><span>사당역 11번 출구 인근</span></li>
+        <li><span class="d">주차</span><span>매장 이용 시 가능</span></li>
+      </ul>
+      <a class="btn-primary" href="https://voghairkorea77234054.imweb.me/" target="_blank" rel="noopener">예약하기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">VOG HAIR 사당점 · Since 1979, Paris</div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  } else { els.forEach(el=>el.classList.add('in')); }
+</script>
+
+</body>
+</html>
