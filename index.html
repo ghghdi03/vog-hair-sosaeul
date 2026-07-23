@@ -212,7 +212,26 @@
   .style-card:hover .s-bg, .style-card:hover .s-photo{transform:scale(1.06);}
   .style-card .s-fade{position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(43,38,32,0) 45%, rgba(43,38,32,.72) 100%);}
   .style-card .s-title{position:absolute; z-index:3; left:16px; right:16px; bottom:14px; color:#fff; font-family:'Gowun Batang', serif; font-weight:700; font-size:16px;}
+  .style-card{cursor:pointer;}
   @media(max-width:860px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- STYLE DETAIL MODAL ---------- */
+  .style-modal{position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px;}
+  .style-modal.open{display:flex;}
+  .style-modal-overlay{position:absolute; inset:0; background:rgba(36,26,19,.55); backdrop-filter:blur(2px);}
+  .style-modal-box{position:relative; background:var(--ivory); border-radius:8px; max-width:640px; width:100%; max-height:88vh; overflow-y:auto; display:grid; grid-template-columns:1fr 1fr; box-shadow:0 30px 60px rgba(36,26,19,.3);}
+  .style-modal-photo{aspect-ratio:4/5; background-size:cover; background-position:center; background-color:var(--sand);}
+  .style-modal-body{padding:32px 28px; display:flex; flex-direction:column;}
+  .style-modal-body h3{font-size:22px; margin-bottom:10px;}
+  .style-modal-desc{color:var(--stone); font-size:13.5px; margin-bottom:20px;}
+  .style-modal-facts{list-style:none; margin-bottom:24px;}
+  .style-modal-facts li{padding:12px 0; border-bottom:1px solid var(--line); font-size:13.5px;}
+  .style-modal-facts li:last-child{border-bottom:none;}
+  .style-modal-facts strong{display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:4px;}
+  .style-modal-facts span{color:var(--charcoal); font-weight:500;}
+  .style-modal-close{position:absolute; top:14px; right:14px; z-index:2; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.85); border:1px solid var(--line); font-size:20px; line-height:1; color:var(--charcoal); cursor:pointer;}
+  .style-modal-close:hover{background:#fff;}
+  @media(max-width:640px){ .style-modal-box{grid-template-columns:1fr;} .style-modal-photo{aspect-ratio:16/9;} }
 
   /* ---------- PRICING ---------- */
   .price-tabs{display:flex; gap:10px; justify-content:center; margin-bottom:32px; flex-wrap:wrap;}
@@ -367,11 +386,30 @@
     <div class="sec-head reveal">
       <p class="eyebrow">Signature Styles</p>
       <h2>대표 시술</h2>
-      <p>소새울역 미용실 보그헤어의 시그니처 시술을 만나보세요.</p>
+      <p>소새울역 미용실 보그헤어의 시그니처 시술을 만나보세요.<br>카드를 클릭하면 추천 대상을 확인할 수 있어요.</p>
     </div>
     <div class="style-grid" id="styleGrid"></div>
   </div>
 </section>
+
+<!-- ===== STYLE DETAIL MODAL ===== -->
+<div class="style-modal" id="styleModal" aria-hidden="true">
+  <div class="style-modal-overlay" id="styleModalOverlay"></div>
+  <div class="style-modal-box" role="dialog" aria-modal="true">
+    <button class="style-modal-close" id="styleModalClose" aria-label="닫기">&times;</button>
+    <div class="style-modal-photo" id="styleModalPhoto"></div>
+    <div class="style-modal-body">
+      <h3 id="styleModalTitle"></h3>
+      <p class="style-modal-desc" id="styleModalDesc"></p>
+      <ul class="style-modal-facts">
+        <li><strong>추천 성별</strong><span id="styleModalGender"></span></li>
+        <li><strong>추천 손상도</strong><span id="styleModalDamage"></span></li>
+        <li><strong>추천 모질</strong><span id="styleModalHairType"></span></li>
+      </ul>
+      <a class="btn-primary" id="styleModalReserve" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="style_modal">예약하기 →</a>
+    </div>
+  </div>
+</div>
 
 <!-- ===== PRICING ===== -->
 <section id="pricing">
@@ -559,14 +597,29 @@ const DESIGNERS = [
 ];
 
 // ⚠️ photo: images/styles/ 폴더에 사진을 넣으면 그라디언트 대신 자동으로 표시됩니다.
+// ⚠️ gender/damage/hairType은 일반적인 미용 상식을 바탕으로 한 초안입니다. 매장 상담 기준과 다르면 알려주세요.
 const STYLES = [
-  { name: "레이어드컷", color1:"#DCC6A8", color2:"#B98F65", photo:"images/styles/레이어드컷.jpg" },
-  { name: "레이어드펌", color1:"#D8BFA0", color2:"#A87850", photo:"images/styles/레이어드펌.jpg" },
-  { name: "C컬펌", color1:"#E3D2B4", color2:"#C29A66", photo:"images/styles/C컬펌.jpg" },
-  { name: "볼륨매직", color1:"#CBB08C", color2:"#96703F", photo:"images/styles/볼륨매직.jpg" },
-  { name: "염색", color1:"#C9AA8C", color2:"#9C6B45", photo:"images/styles/염색.jpg" },
-  { name: "탈색", color1:"#EAD9BE", color2:"#C9A46E", photo:"images/styles/탈색.jpg" },
-  { name: "클리닉", color1:"#D3C1A5", color2:"#A8815A", photo:"images/styles/클리닉.jpg" },
+  { name: "레이어드컷", color1:"#DCC6A8", color2:"#B98F65", photo:"images/styles/레이어드컷.jpg",
+    gender: "남녀 공용", damage: "손상도 무관", hairType: "가는 모발부터 두꺼운 모발까지 모두 잘 어울려요",
+    desc: "층을 내어 가볍고 자연스러운 움직임을 살리는 커트입니다." },
+  { name: "레이어드펌", color1:"#D8BFA0", color2:"#A87850", photo:"images/styles/레이어드펌.jpg",
+    gender: "여성 추천", damage: "약~중간 손상모 권장", hairType: "힘없고 가늘어 볼륨이 필요한 모발",
+    desc: "레이어드컷 위에 웨이브를 더해 볼륨과 살랑거림을 동시에 잡아줍니다." },
+  { name: "C컬펌", color1:"#E3D2B4", color2:"#C29A66", photo:"images/styles/C컬펌.jpg",
+    gender: "여성 추천", damage: "약~중간 손상모 권장", hairType: "직모라 안쪽으로 자연스럽게 마는 웨이브를 원하는 모질",
+    desc: "끝만 안으로 말아주는 은은한 C컬로 단정하면서 여성스러운 인상을 줍니다." },
+  { name: "볼륨매직", color1:"#CBB08C", color2:"#96703F", photo:"images/styles/볼륨매직.jpg",
+    gender: "남녀 공용", damage: "건강모~약한 손상모 (심한 손상모는 상담 필요)", hairType: "곱슬기가 있거나 뜨는 모발, 뿌리 볼륨을 눕히고 싶은 모질",
+    desc: "뿌리 볼륨과 곱슬기를 정리해 매끈하게 펴주는 시술입니다." },
+  { name: "염색", color1:"#C9AA8C", color2:"#9C6B45", photo:"images/styles/염색.jpg",
+    gender: "남녀 공용", damage: "손상도에 따라 컬러·약제 조절 상담", hairType: "모질 무관 (기존 염색 이력에 따라 상담)",
+    desc: "원하는 컬러 톤에 맞춰 모발 상태를 진단한 후 진행합니다." },
+  { name: "탈색", color1:"#EAD9BE", color2:"#C9A46E", photo:"images/styles/탈색.jpg",
+    gender: "남녀 공용", damage: "건강모 권장 (손상모는 단계별 진행)", hairType: "굵고 건강한 모발일수록 안정적인 결과",
+    desc: "밝은 컬러 표현을 위한 사전 작업으로, 모발 상태를 보며 단계별로 진행합니다." },
+  { name: "클리닉", color1:"#D3C1A5", color2:"#A8815A", photo:"images/styles/클리닉.jpg",
+    gender: "남녀 공용", damage: "중간~심한 손상모에 특히 추천", hairType: "푸석하고 끝이 갈라지는 모질",
+    desc: "손상된 모발에 영양과 수분을 채워 매끄러운 상태로 회복시켜 줍니다." },
 ];
 
 // ⚠️ images/store/ 폴더에 사진을 넣으면 매장소개 섹션에 자동으로 표시됩니다.
@@ -650,14 +703,46 @@ function renderDesigners(){
 
 function renderStyles(){
   const grid = document.getElementById('styleGrid');
-  grid.innerHTML = STYLES.map(s => `
-    <div class="style-card reveal">
+  grid.innerHTML = STYLES.map((s,i) => `
+    <div class="style-card reveal" data-idx="${i}">
       <div class="s-bg" style="background:linear-gradient(160deg, ${s.color1}, ${s.color2});"></div>
       ${s.photo ? `<img class="s-photo" src="${s.photo}" alt="${s.name}" loading="lazy" onerror="this.remove()">` : ''}
       <div class="s-fade"></div>
       <div class="s-title">${s.name}</div>
     </div>
   `).join('');
+  grid.addEventListener('click', (e) => {
+    const card = e.target.closest('.style-card');
+    if(!card) return;
+    openStyleModal(STYLES[Number(card.dataset.idx)]);
+  });
+}
+
+function openStyleModal(s){
+  const modal = document.getElementById('styleModal');
+  document.getElementById('styleModalPhoto').style.backgroundImage = s.photo ? `url('${s.photo}')` : `linear-gradient(160deg, ${s.color1}, ${s.color2})`;
+  document.getElementById('styleModalTitle').textContent = s.name;
+  document.getElementById('styleModalDesc').textContent = s.desc || '';
+  document.getElementById('styleModalGender').textContent = s.gender || '-';
+  document.getElementById('styleModalDamage').textContent = s.damage || '-';
+  document.getElementById('styleModalHairType').textContent = s.hairType || '-';
+  document.getElementById('styleModalReserve').href = resolveReserveHref(CONFIG.defaultReserveUrl);
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeStyleModal(){
+  const modal = document.getElementById('styleModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function initStyleModal(){
+  document.getElementById('styleModalOverlay').addEventListener('click', closeStyleModal);
+  document.getElementById('styleModalClose').addEventListener('click', closeStyleModal);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeStyleModal(); });
 }
 
 function renderStore(){
@@ -808,6 +893,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initReveal();
   initEventBinding();
+  initStyleModal();
 });
 </script>
 
