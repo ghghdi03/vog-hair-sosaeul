@@ -254,11 +254,11 @@
   .price-panel-note{font-size:12.5px; color:var(--stone); padding:18px 0 8px; line-height:1.6;}
   .price-tip{font-size:12.5px; color:var(--stone); background:var(--ivory); border-radius:6px; padding:14px 16px; margin:8px 0 20px; line-height:1.7;}
   .price-tip strong{color:var(--brass-deep);}
-  .event-panel{padding:48px 32px; text-align:center;}
+  .event-panel{background:#fff; border:1px solid var(--line); border-radius:8px; padding:56px 32px; text-align:center; max-width:640px; margin:0 auto; box-shadow:0 20px 40px rgba(43,38,32,.05);}
   .event-badge{display:inline-block; padding:5px 16px; border-radius:999px; background:var(--brass); color:#fff; font-size:11px; font-weight:700; letter-spacing:.12em; margin-bottom:16px;}
   .event-panel h3{font-size:22px; margin-bottom:14px;}
   .event-desc{font-size:15px; color:var(--charcoal); max-width:44ch; margin:0 auto;}
-  .event-panel .price-panel-note{text-align:center;}
+  .event-panel .price-panel-note{text-align:center; margin-bottom:24px;}
 
   /* ---------- REVIEWS ---------- */
   .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:36px;}
@@ -433,6 +433,23 @@
     </div>
   </div>
 </div>
+
+<!-- ===== EVENT ===== -->
+<section id="event" class="bg-sand">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Event</p>
+      <h2>첫 방문 이벤트</h2>
+    </div>
+    <div class="event-panel reveal">
+      <div class="event-badge">EVENT</div>
+      <h3>네이버예약 시 전 메뉴 30% 할인</h3>
+      <p class="event-desc">네이버예약으로 예약하고 방문하시면 전 메뉴 30% 할인가로 이용하실 수 있습니다.</p>
+      <p class="price-panel-note">* 프리미엄 시술 등 일부 메뉴는 실제 할인율이 다를 수 있습니다. 정확한 금액은 네이버예약 화면에서 확인해주세요.</p>
+      <a class="btn-primary" id="reserveEventBtn" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="event">네이버예약하기 →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ===== PRICING ===== -->
 <section id="pricing">
@@ -649,12 +666,6 @@ const STYLES = [
 const STORE_PHOTOS = ["images/store/store-1.jpg", "images/store/store-2.jpg", "images/store/store-3.jpg"];
 
 const PRICES = {
-  EVENT: {
-    type: "event",
-    title: "첫 방문 이벤트",
-    desc: "네이버예약으로 예약하고 방문하시면 전 메뉴 30% 할인가로 이용하실 수 있습니다.",
-    note: "* 프리미엄 시술 등 일부 메뉴는 실제 할인율이 다를 수 있습니다. 정확한 금액은 네이버예약 화면에서 확인해주세요.",
-  },
   CUT: {
     groups: [{ items: [
       { name:"[첫방문]앞머리컷", price:"1,000원", featured:true },
@@ -862,7 +873,7 @@ function renderStore(){
   `;
 }
 
-const PRICE_TAB_LABELS = { EVENT:"이벤트", CUT:"CUT", PERM:"PERM", COLOR:"COLOR", ETC:"기타", CLINIC:"CLINIC" };
+const PRICE_TAB_LABELS = { CUT:"CUT", PERM:"PERM", COLOR:"COLOR", ETC:"기타", CLINIC:"CLINIC" };
 
 function renderPricing(){
   const tabsEl = document.getElementById('priceTabs');
@@ -871,16 +882,6 @@ function renderPricing(){
   tabsEl.innerHTML = keys.map((k,i) => `<div class="price-tab ${i===0?'active':''}" data-tab="${k}">${PRICE_TAB_LABELS[k] || k}</div>`).join('');
   panelsEl.innerHTML = keys.map((k,i) => {
     const data = PRICES[k];
-    if(data.type === 'event'){
-      return `
-        <div class="price-panel event-panel ${i===0?'active':''}" data-panel="${k}">
-          <div class="event-badge">EVENT</div>
-          <h3>${data.title}</h3>
-          <p class="event-desc">${data.desc}</p>
-          ${data.note ? `<p class="price-panel-note">${data.note}</p>` : ''}
-        </div>
-      `;
-    }
     return `
       <div class="price-panel ${i===0?'active':''}" data-panel="${k}">
         ${data.groups.map(g => `
@@ -944,7 +945,7 @@ function renderFaq(){
 
 function bindReserveButtons(){
   const href = resolveReserveHref(CONFIG.defaultReserveUrl);
-  ['reserveHeaderBtn','reserveMobileBtn','reserveHeroBtn','reserveFinalBtn'].forEach(id => {
+  ['reserveHeaderBtn','reserveMobileBtn','reserveHeroBtn','reserveFinalBtn','reserveEventBtn'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.href = href;
   });
