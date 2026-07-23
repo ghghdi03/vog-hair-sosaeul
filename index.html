@@ -243,14 +243,22 @@
   .price-tabs{display:flex; gap:10px; justify-content:center; margin-bottom:32px; flex-wrap:wrap;}
   .price-tab{padding:10px 22px; border-radius:999px; border:1px solid var(--line); font-size:13.5px; font-weight:600; color:var(--stone); cursor:pointer; transition:all .2s ease; background:#fff;}
   .price-tab.active{background:var(--charcoal); color:#fff; border-color:var(--charcoal);}
-  .price-panel{display:none; background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+  .price-panel{display:none; background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden; padding:8px 26px;}
   .price-panel.active{display:block;}
-  .price-row{display:flex; justify-content:space-between; align-items:center; padding:18px 26px; border-bottom:1px solid var(--line); font-size:14.5px;}
-  .price-row:last-child{border-bottom:none;}
+  .price-group-title{font-family:'Gowun Batang', serif; font-weight:700; font-size:15px; color:var(--brass-deep); padding:20px 0 6px;}
+  .price-row{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid var(--line); font-size:14px;}
+  .price-row:last-of-type{border-bottom:none;}
   .price-row .p-name{font-weight:500;}
-  .price-row .p-sub{font-size:12.5px; color:var(--stone); margin-top:2px;}
+  .price-badge{display:inline-block; margin-left:8px; padding:2px 8px; border-radius:999px; background:var(--sand); color:var(--brass-deep); font-size:10.5px; font-weight:700; letter-spacing:.03em; vertical-align:middle;}
   .price-row .p-val{font-family:'Gowun Batang', serif; font-weight:700; color:var(--charcoal); white-space:nowrap; font-variant-numeric:tabular-nums;}
-  .price-note{text-align:center; font-size:12.5px; color:var(--stone); margin-top:18px;}
+  .price-panel-note{font-size:12.5px; color:var(--stone); padding:18px 0 8px; line-height:1.6;}
+  .price-tip{font-size:12.5px; color:var(--stone); background:var(--ivory); border-radius:6px; padding:14px 16px; margin:8px 0 20px; line-height:1.7;}
+  .price-tip strong{color:var(--brass-deep);}
+  .event-panel{padding:48px 32px; text-align:center;}
+  .event-badge{display:inline-block; padding:5px 16px; border-radius:999px; background:var(--brass); color:#fff; font-size:11px; font-weight:700; letter-spacing:.12em; margin-bottom:16px;}
+  .event-panel h3{font-size:22px; margin-bottom:14px;}
+  .event-desc{font-size:15px; color:var(--charcoal); max-width:44ch; margin:0 auto;}
+  .event-panel .price-panel-note{text-align:center;}
 
   /* ---------- REVIEWS ---------- */
   .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:36px;}
@@ -436,7 +444,6 @@
     </div>
     <div class="price-tabs reveal" id="priceTabs"></div>
     <div id="pricePanels" class="reveal"></div>
-    <p class="price-note">※ '첫방문가'는 최초 1회 방문 고객 기준이며, 모발 길이·상태에 따라 금액이 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -642,22 +649,107 @@ const STYLES = [
 const STORE_PHOTOS = ["images/store/store-1.jpg", "images/store/store-2.jpg", "images/store/store-3.jpg"];
 
 const PRICES = {
-  CUT: [
-    { name:"남성컷", sub:"첫방문가", price:"15,000원" },
-    { name:"여성컷", sub:"첫방문가", price:"15,000원" },
-    { name:"원장님컷", sub:"첫방문가", price:"20,000원" },
-  ],
-  PERM: [
-    { name:"수분펌", sub:"첫방문가", price:"60,000원" },
-    { name:"디지털/셋팅펌", sub:"첫방문가 · 프리미엄", price:"70,000원" },
-    { name:"볼륨매직", sub:"첫방문가 · 프리미엄", price:"85,000원" },
-    { name:"매직셋팅", sub:"첫방문가 · 프리미엄", price:"110,000원" },
-  ],
-  COLOR: [
-    { name:"뿌리염색", sub:"3cm 기준 · 프리미엄", price:"56,000원" },
-    { name:"전체염색", sub:"첫방문가 · 프리미엄", price:"50,000원" },
-    { name:"전체탈색", sub:"첫방문가 · 프리미엄", price:"75,000원" },
-  ],
+  EVENT: {
+    type: "event",
+    title: "첫 방문 이벤트",
+    desc: "네이버예약으로 예약하고 방문하시면 전 메뉴 30% 할인가로 이용하실 수 있습니다.",
+    note: "* 프리미엄 시술 등 일부 메뉴는 실제 할인율이 다를 수 있습니다. 정확한 금액은 네이버예약 화면에서 확인해주세요.",
+  },
+  CUT: {
+    groups: [{ items: [
+      { name:"[첫방문]앞머리컷", price:"1,000원", featured:true },
+      { name:"남성컷", price:"22,000원", featured:true },
+      { name:"여성컷", price:"22,000원", featured:true },
+      { name:"[첫방문]남성컷", price:"15,000원" },
+      { name:"[첫방문]여성컷", price:"15,000원" },
+      { name:"[첫방문]원장님컷", price:"20,000원" },
+      { name:"앞머리컷", price:"3,000원" },
+      { name:"앞머리 디자인컷", price:"5,000원" },
+      { name:"남 디자인컷", price:"25,000원" },
+      { name:"여 디자인컷", price:"27,000원" },
+      { name:"학생컷", price:"18,000원" },
+      { name:"가발컷", price:"30,000원" },
+    ]}],
+  },
+  PERM: {
+    groups: [
+      { name:"일반펌", items: [
+        { name:"[첫방문]수분펌", price:"60,000원", featured:true },
+        { name:"다운펌", price:"20,000원", featured:true },
+        { name:"여성 수분펌", price:"96,000원", featured:true },
+        { name:"[첫방문]다운펌", price:"10,000원" },
+        { name:"[첫방문]보그펌", price:"50,000원" },
+        { name:"앞머리 펌", price:"30,000원" },
+        { name:"남성 수분펌", price:"80,000원" },
+        { name:"여성 보그펌", price:"80,000원" },
+        { name:"남성 보그펌", price:"64,000원" },
+      ]},
+      { name:"열펌", items: [
+        { name:"[첫방문]디지털/셋팅(프리미엄)", price:"70,000원", featured:true },
+        { name:"[첫방문]볼륨매직(프리미엄)", price:"85,000원", featured:true },
+        { name:"[첫방문]매직셋팅(프리미엄)", price:"110,000원", featured:true },
+        { name:"디지털/셋팅(프리미엄)", price:"112,000원", featured:true },
+        { name:"매직셋팅(프리미엄)", price:"176,000원" },
+        { name:"뿌리매직(프리미엄)", price:"90,000원" },
+        { name:"볼륨매직(프리미엄)", price:"136,000원" },
+        { name:"[첫방문]디지털/셋팅(일반)", price:"60,000원" },
+        { name:"[첫방문]볼륨매직(일반)", price:"75,000원" },
+        { name:"[첫방문]매직셋팅(일반)", price:"100,000원" },
+        { name:"디지털/셋팅(일반)", price:"96,000원" },
+        { name:"매직셋팅(일반)", price:"160,000원" },
+        { name:"뿌리매직(일반)", price:"70,000원" },
+        { name:"볼륨매직(일반)", price:"120,000원" },
+        { name:"앞머리 펌(열펌)", price:"35,000원" },
+      ]},
+    ],
+    note: "기장에 따라 추가 요금이 발생할 수 있습니다 — 어깨아래 +20,000원 / 가슴아래 +40,000원",
+  },
+  COLOR: {
+    groups: [{ items: [
+      { name:"[첫방문]프리미엄 전체염색", price:"50,000원", featured:true },
+      { name:"프리미엄 전체염색", price:"80,000원" },
+      { name:"뿌리염색_3cm기준(프리미엄)", price:"56,000원" },
+      { name:"[첫방문]클래식 전체염색", price:"40,000원" },
+      { name:"[첫방문]매니큐어", price:"50,000원" },
+      { name:"[첫방문]전체탈색(일반)", price:"50,000원" },
+      { name:"[첫방문]전체탈색(프리미엄)", price:"75,000원" },
+      { name:"클래식 전체염색", price:"65,000원" },
+      { name:"전체탈색(프리미엄)", price:"120,000원" },
+      { name:"전체탈색(일반)", price:"80,000원" },
+      { name:"뿌리탈색", price:"30,000원" },
+      { name:"매니큐어", price:"80,000원" },
+      { name:"뿌리염색_3cm기준(일반)", price:"48,000원" },
+    ]}],
+    note: "기장에 따라 추가 요금이 발생할 수 있습니다 — 어깨아래 +20,000원 / 가슴아래 +40,000원",
+  },
+  ETC: {
+    groups: [{ items: [
+      { name:"샴푸+지압패키지", price:"20,000원", featured:true },
+      { name:"[첫방문]드라이", price:"15,000원" },
+      { name:"샴푸", price:"10,000원" },
+      { name:"웨이브 드라이", price:"20,000원" },
+      { name:"여성 베이직 드라이", price:"18,000원" },
+      { name:"남성 베이직 드라이", price:"15,000원" },
+    ]}],
+    note: "가격정보는 시술별 기본가격을 기준으로 제공합니다.",
+  },
+  CLINIC: {
+    groups: [
+      { name:"클리닉(모발)", items: [
+        { name:"단백질 앰플", price:"30,000원" },
+        { name:"나노힐 복구클리닉", price:"100,000원" },
+        { name:"올인원 클리닉", price:"50,000원" },
+        { name:"무코타 클리닉", price:"80,000원" },
+        { name:"신데렐라 클리닉", price:"150,000원" },
+      ]},
+      { name:"클리닉(두피)", items: [
+        { name:"두피 스케일링", price:"50,000원" },
+        { name:"히노키 스케일링", price:"100,000원" },
+      ]},
+    ],
+    note: "*커트 별도. 기장에 따라 추가 요금이 발생할 수 있습니다 — 어깨아래 +30,000원 / 가슴아래 +50,000원",
+    tip: "클리닉을 가장 아름답게 유지할 수 있는 기간은 1~4주입니다. 주 1회 케어 마스크와 모이스처 샴푸+트리트먼트를 매일 사용하면 모발 건강을 더 오래 유지할 수 있습니다.",
+  },
 };
 
 const REVIEWS = [
@@ -770,21 +862,41 @@ function renderStore(){
   `;
 }
 
+const PRICE_TAB_LABELS = { EVENT:"이벤트", CUT:"CUT", PERM:"PERM", COLOR:"COLOR", ETC:"기타", CLINIC:"CLINIC" };
+
 function renderPricing(){
   const tabsEl = document.getElementById('priceTabs');
   const panelsEl = document.getElementById('pricePanels');
   const keys = Object.keys(PRICES);
-  tabsEl.innerHTML = keys.map((k,i) => `<div class="price-tab ${i===0?'active':''}" data-tab="${k}">${k}</div>`).join('');
-  panelsEl.innerHTML = keys.map((k,i) => `
-    <div class="price-panel ${i===0?'active':''}" data-panel="${k}">
-      ${PRICES[k].map(row => `
-        <div class="price-row">
-          <div><div class="p-name">${row.name}</div>${row.sub?`<div class="p-sub">${row.sub}</div>`:''}</div>
-          <div class="p-val">${row.price}</div>
+  tabsEl.innerHTML = keys.map((k,i) => `<div class="price-tab ${i===0?'active':''}" data-tab="${k}">${PRICE_TAB_LABELS[k] || k}</div>`).join('');
+  panelsEl.innerHTML = keys.map((k,i) => {
+    const data = PRICES[k];
+    if(data.type === 'event'){
+      return `
+        <div class="price-panel event-panel ${i===0?'active':''}" data-panel="${k}">
+          <div class="event-badge">EVENT</div>
+          <h3>${data.title}</h3>
+          <p class="event-desc">${data.desc}</p>
+          ${data.note ? `<p class="price-panel-note">${data.note}</p>` : ''}
         </div>
-      `).join('')}
-    </div>
-  `).join('');
+      `;
+    }
+    return `
+      <div class="price-panel ${i===0?'active':''}" data-panel="${k}">
+        ${data.groups.map(g => `
+          ${g.name ? `<div class="price-group-title">${g.name}</div>` : ''}
+          ${g.items.map(row => `
+            <div class="price-row">
+              <div class="p-name">${row.name}${row.featured ? '<span class="price-badge">대표</span>' : ''}</div>
+              <div class="p-val">${row.price}</div>
+            </div>
+          `).join('')}
+        `).join('')}
+        ${data.note ? `<p class="price-panel-note">${data.note}</p>` : ''}
+        ${data.tip ? `<div class="price-tip"><strong>Tip.</strong> ${data.tip}</div>` : ''}
+      </div>
+    `;
+  }).join('');
   tabsEl.addEventListener('click', (e) => {
     const tab = e.target.closest('.price-tab');
     if(!tab) return;
