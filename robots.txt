@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ghghdi03.github.io/vog-hair-sosaeul/sitemap.xml
