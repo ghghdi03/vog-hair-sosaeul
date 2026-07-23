@@ -421,7 +421,7 @@
     </div>
     <div class="price-tabs reveal" id="priceTabs"></div>
     <div id="pricePanels" class="reveal"></div>
-    <p class="price-note">※ 위 가격은 예시이며, 정확한 금액은 매장 문의 및 방문 상담 후 확정됩니다.</p>
+    <p class="price-note">※ '첫방문가'는 최초 1회 방문 고객 기준이며, 모발 길이·상태에 따라 금액이 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -625,25 +625,22 @@ const STYLES = [
 // ⚠️ images/store/ 폴더에 사진을 넣으면 매장소개 섹션에 자동으로 표시됩니다.
 const STORE_PHOTOS = ["images/store/store-1.jpg", "images/store/store-2.jpg", "images/store/store-3.jpg"];
 
-// ⚠️ 실제 가격으로 교체 필요 (아래는 예시 가격)
 const PRICES = {
   CUT: [
-    { name:"디자인 컷", sub:"상담 포함", price:"35,000원~" },
-    { name:"클리닉 컷", sub:"두피 클리닉 포함", price:"45,000원~" },
+    { name:"남성컷", sub:"첫방문가", price:"15,000원" },
+    { name:"여성컷", sub:"첫방문가", price:"15,000원" },
+    { name:"원장님컷", sub:"첫방문가", price:"20,000원" },
   ],
   PERM: [
-    { name:"레이어드펌", sub:"기장 추가 별도", price:"120,000원~" },
-    { name:"볼륨매직", sub:"기장 추가 별도", price:"180,000원~" },
-    { name:"C컬펌", sub:"기장 추가 별도", price:"150,000원~" },
+    { name:"수분펌", sub:"첫방문가", price:"60,000원" },
+    { name:"디지털/셋팅펌", sub:"첫방문가 · 프리미엄", price:"70,000원" },
+    { name:"볼륨매직", sub:"첫방문가 · 프리미엄", price:"85,000원" },
+    { name:"매직셋팅", sub:"첫방문가 · 프리미엄", price:"110,000원" },
   ],
   COLOR: [
-    { name:"뿌리 염색", sub:"리터치", price:"70,000원~" },
-    { name:"전체 염색", sub:"기장 추가 별도", price:"110,000원~" },
-    { name:"탈색", sub:"1회 기준", price:"90,000원~" },
-  ],
-  CLINIC: [
-    { name:"단백질 클리닉", sub:"손상모 집중케어", price:"50,000원~" },
-    { name:"두피 스케일링", sub:"", price:"40,000원~" },
+    { name:"뿌리염색", sub:"3cm 기준 · 프리미엄", price:"56,000원" },
+    { name:"전체염색", sub:"첫방문가 · 프리미엄", price:"50,000원" },
+    { name:"전체탈색", sub:"첫방문가 · 프리미엄", price:"75,000원" },
   ],
 };
 
