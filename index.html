@@ -94,14 +94,15 @@
 
 <style>
   :root{
-    --ivory:#FBF7F1;
-    --sand:#F1E3D2;
-    --charcoal:#3A2E27;
-    --stone:#9C8C7C;
-    --brass:#C17F3E;
-    --brass-deep:#A3652B;
-    --line:rgba(58,46,39,0.12);
-    --footer-dark:#241A13;
+    --ivory:#FAF6EC;
+    --sand:#EEDFC8;
+    --charcoal:#211A13;
+    --stone:#8C7F6A;
+    --brass:#A9803E;
+    --brass-deep:#87621F;
+    --brass-light:#D9BC8B;
+    --line:rgba(33,26,19,0.13);
+    --footer-dark:#160F0A;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -155,14 +156,15 @@
 
   /* ---------- HERO ---------- */
   .hero{position:relative; min-height:92vh; display:flex; align-items:center; padding:140px 0 80px; overflow:hidden;
-    background:linear-gradient(155deg, #46362A 0%, #241A13 45%, #5A4634 100%);}
+    background:linear-gradient(155deg, #3A2C1F 0%, #160F0A 45%, #4A3A28 100%);}
   .hero-photo{position:absolute; inset:0; background-image:url('images/hero/hero.jpg'); background-size:cover; background-position:center 12%;}
-  .hero-scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(36,26,19,.45) 0%, rgba(36,26,19,.6) 55%, rgba(36,26,19,.8) 100%);}
+  .hero-scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,15,10,.32) 0%, rgba(22,15,10,.55) 55%, rgba(22,15,10,.88) 100%);}
   .hero-content{position:relative; z-index:2; max-width:1120px; margin:0 auto; padding:0 24px; text-align:center;}
-  .hero-content .eyebrow{text-align:center; color:#E3D2BC;}
-  .hero h1{font-size:clamp(24px,4.4vw,46px); line-height:1.4; color:#FBF7EF; margin-bottom:22px;}
-  .hero h1 em{font-style:italic; color:#EAD5B8;}
-  .hero-sub{color:#D9CBB8; max-width:44ch; margin:0 auto 34px; font-size:16px;}
+  .hero-content .eyebrow{text-align:center; color:var(--brass-light);}
+  .hero h1{font-size:clamp(26px,4.8vw,50px); line-height:1.38; color:#FBF6EA; margin-bottom:22px; text-wrap:balance;}
+  .hero h1 em{font-style:italic; color:var(--brass-light);}
+  .hero-sub{color:#D6CBB4; max-width:44ch; margin:0 auto 28px; font-size:16px;}
+  .hero-rule{width:1px; height:36px; background:linear-gradient(180deg, transparent, var(--brass-light)); margin:0 auto 28px;}
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
   .btn-primary{
     background:var(--brass); color:#fff; padding:15px 32px; border-radius:999px;
@@ -177,13 +179,13 @@
   .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08);}
   .btn-ghost.dark{border-color:var(--line); color:var(--charcoal);}
   .btn-ghost.dark:hover{border-color:var(--brass-deep); color:var(--brass-deep); background:transparent;}
-  .scroll-ind{position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:2; color:#E3D2BC; opacity:.85; animation:bounce 2.2s infinite;}
+  .scroll-ind{position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:2; color:var(--brass-light); opacity:.85; animation:bounce 2.2s infinite;}
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
 
   /* ---------- SECTION HEAD ---------- */
   .sec-head{text-align:center; max-width:640px; margin:0 auto 52px;}
   .sec-head h2{font-size:clamp(24px,3.4vw,34px); padding-bottom:20px; position:relative; margin-bottom:18px;}
-  .sec-head h2::after{content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:36px; height:1px; background:var(--brass);}
+  .sec-head h2::after{content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:44px; height:1.5px; background:var(--brass);}
   .sec-head p{color:var(--stone); font-size:14.5px;}
 
   /* ---------- BRAND STORY ---------- */
@@ -308,9 +310,10 @@
   .faq-a p{padding:0 4px 22px; color:var(--stone); font-size:13.5px; max-width:62ch;}
 
   /* ---------- FINAL CTA ---------- */
-  .final-cta{background:linear-gradient(155deg,#46362A,#241A13); color:#FBF7EF; text-align:center; padding:96px 0;}
-  .final-cta .eyebrow{text-align:center; color:#E3D2BC;}
-  .final-cta h2{color:#FBF7EF; font-size:clamp(24px,3.6vw,38px); margin-bottom:26px;}
+  .final-cta{background:linear-gradient(155deg,#3A2C1F,#160F0A); color:#FBF6EA; text-align:center; padding:100px 0;}
+  .final-cta .eyebrow{text-align:center; color:var(--brass-light);}
+  .final-cta h2{color:#FBF6EA; font-size:clamp(26px,3.8vw,40px); margin-bottom:24px; text-wrap:balance;}
+  .final-cta .rule{width:1px; height:36px; background:linear-gradient(180deg, transparent, var(--brass-light)); margin:0 auto 24px;}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--footer-dark); color:rgba(255,255,255,.7); padding:56px 0 28px;}
@@ -384,6 +387,7 @@
     <p class="eyebrow">VOG HAIR · SOSAEUL STATION</p>
     <h1>고객의 모발 상태와 얼굴형을 충분히<br>상담한 후 맞춤형 <em>스타일</em>을 제안합니다.</h1>
     <p class="hero-sub">프리미엄 헤어살롱 보그헤어 소새울역점<br>1979년 파리에서 시작된 브랜드의 상담 노하우를 그대로.</p>
+    <div class="hero-rule"></div>
     <div class="cta-row">
       <a class="btn-primary" href="#" id="reserveHeroBtn" data-ga-event="reserve_click" data-location="hero" target="_blank" rel="noopener">예약하기 →</a>
       <a class="btn-ghost" href="tel:032-343-1123" data-ga-event="call_click" data-location="hero">전화하기</a>
@@ -553,6 +557,7 @@
   <div class="wrap reveal">
     <p class="eyebrow">Book Now</p>
     <h2>오늘 예약 가능한 디자이너를 확인해보세요</h2>
+    <div class="rule"></div>
     <div class="cta-row">
       <a class="btn-primary" href="#" id="reserveFinalBtn" data-ga-event="reserve_click" data-location="final_cta" target="_blank" rel="noopener">예약하기 →</a>
       <a class="btn-ghost" href="tel:032-343-1123" data-ga-event="call_click" data-location="final_cta">전화하기 032-343-1123</a>
@@ -809,10 +814,10 @@ function renderDesigners(){
     <div class="designer-card reveal">
       <div class="designer-photo">
         <svg viewBox="0 0 300 375" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="375" fill="#F1E3D2"/>
-          <circle cx="150" cy="150" r="60" fill="none" stroke="#C17F3E" stroke-width="1.2" opacity=".55"/>
-          <text x="150" y="165" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="42" fill="#A3652B">${initials(d.name)}</text>
-          <path d="M70 320 C110 280 190 280 230 320" stroke="#C17F3E" stroke-width="1" fill="none" opacity=".4"/>
+          <rect width="300" height="375" fill="#EEDFC8"/>
+          <circle cx="150" cy="150" r="60" fill="none" stroke="#A9803E" stroke-width="1.2" opacity=".55"/>
+          <text x="150" y="165" text-anchor="middle" font-family="Noto Serif KR, serif" font-size="42" fill="#87621F">${initials(d.name)}</text>
+          <path d="M70 320 C110 280 190 280 230 320" stroke="#A9803E" stroke-width="1" fill="none" opacity=".4"/>
         </svg>
         ${d.photo ? `<img src="${d.photo}" alt="${d.name}" loading="lazy" onerror="this.remove()">` : ''}
       </div>
