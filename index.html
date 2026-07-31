@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 
 <!-- ⚠️ TODO: 위도/경도(geo), 우편번호(postalCode), 확정된 요일별 운영시간 확인 후 값 채우기 -->
@@ -127,18 +127,26 @@
 
   /* ---------- HEADER ---------- */
   header{position:fixed; top:0; left:0; right:0; z-index:50; transition:box-shadow .35s ease, border-color .35s ease, background .35s ease;
-    background:rgba(250,246,236,.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+    background:rgba(250,246,236,.96); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
   header.scrolled{box-shadow:0 4px 24px rgba(43,38,32,.05);}
-  .masthead{text-align:center; padding:20px 24px 16px; border-bottom:1px solid var(--line);}
-  .brand{display:inline-flex; align-items:center; gap:10px; font-family:'Noto Serif KR', serif; font-weight:700; font-size:19px; letter-spacing:0.04em; color:var(--charcoal);}
+  .topbar{border-bottom:1px solid var(--line);}
+  .topbar-inner{display:flex; align-items:center; justify-content:space-between; max-width:1120px; margin:0 auto; padding:8px 24px; font-size:11px; color:var(--stone); letter-spacing:0.02em;}
+  .topbar-links{display:flex; align-items:center; gap:8px;}
+  .topbar-social{display:flex; align-items:center; gap:14px;}
+  .topbar-social a{color:var(--stone); transition:color .2s ease;}
+  .topbar-social a:hover{color:var(--brass-deep);}
+  .topbar-social svg{width:13px; height:13px;}
+  @media(max-width:600px){ .topbar-links .sep, .topbar-links .loc{display:none;} }
+  .masthead{text-align:center; padding:22px 24px 18px; border-bottom:1px solid var(--line);}
+  .brand{display:inline-flex; align-items:center; gap:10px; font-family:'Playfair Display','Noto Serif KR', serif; font-weight:600; font-size:21px; letter-spacing:0.08em; color:var(--charcoal);}
   .brand-mark{width:40px; height:40px; border:1.4px solid currentColor; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; flex:none;}
   .brand-mark svg{width:26px; height:26px;}
-  .brand small{font-family:'PretendardVariable',sans-serif; font-weight:400; font-size:12px; opacity:.65; margin-left:2px;}
+  .brand small{font-family:'PretendardVariable',sans-serif; font-weight:400; font-size:12px; letter-spacing:0.02em; opacity:.6; margin-left:2px;}
   .nav{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:13px 24px; max-width:1120px; margin:0 auto;}
   .nav-menu{grid-column:2; display:flex; gap:34px; list-style:none;}
-  .nav-menu a{font-size:11.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--charcoal); opacity:.62; transition:color .2s ease, opacity .2s ease;}
+  .nav-menu a{font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--charcoal); opacity:.6; transition:color .2s ease, opacity .2s ease;}
   .nav-menu a:hover{opacity:1; color:var(--brass-deep);}
-  .nav-cta{grid-column:3; justify-self:end; border:1px solid var(--charcoal); color:var(--charcoal); padding:9px 20px; font-size:11.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; transition:background .2s ease, color .2s ease, border-color .2s ease;}
+  .nav-cta{grid-column:3; justify-self:end; border:1px solid var(--charcoal); color:var(--charcoal); padding:9px 20px; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; transition:background .2s ease, color .2s ease, border-color .2s ease;}
   .nav-cta:hover{background:var(--charcoal); color:#FAF6EC;}
   @media(max-width:900px){ .nav-menu{display:none;} .nav{grid-template-columns:1fr auto;} }
 
@@ -212,13 +220,13 @@
   @media(max-width:600px){ .designer-grid{grid-template-columns:1fr;} }
 
   /* ---------- STYLES GRID ---------- */
-  .style-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px;}
+  .style-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
   .style-card{position:relative; aspect-ratio:3/4; overflow:hidden;}
   .style-card .s-bg{position:absolute; inset:0; transition:transform .5s ease;}
   .style-card .s-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; transition:transform .5s ease;}
   .style-card:hover .s-bg, .style-card:hover .s-photo{transform:scale(1.06);}
   .style-card .s-fade{position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(43,38,32,0) 55%, rgba(43,38,32,.68) 100%);}
-  .style-card .s-title{position:absolute; z-index:3; left:12px; right:12px; bottom:16px; text-align:center; color:#fff; font-family:'PretendardVariable',sans-serif; font-weight:600; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;}
+  .style-card .s-title{position:absolute; z-index:3; left:12px; right:12px; bottom:24px; text-align:center; color:#fff; font-family:'Noto Serif KR', serif; font-weight:600; font-size:16px; letter-spacing:0.04em;}
   .style-card{cursor:pointer;}
   @media(max-width:860px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
 
@@ -277,6 +285,9 @@
   .store-photo{aspect-ratio:4/5; border-radius:4px; overflow:hidden; border:1px solid var(--line); background:var(--sand);}
   .store-photo img{width:100%; height:100%; object-fit:cover; display:block;}
   .store-card{position:relative; z-index:2; background:#fff; border:1px solid var(--line); margin-left:-84px; padding:48px 44px; box-shadow:0 30px 60px rgba(33,26,19,.12);}
+  .store-heading{display:flex; align-items:center; gap:18px; margin-bottom:16px;}
+  .store-heading h2{white-space:nowrap;}
+  .store-heading-rule{flex:1; height:1px; background:var(--line);}
   .store-facts{list-style:none; margin-top:22px;}
   .store-facts li{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14px;}
   .store-facts li:last-child{border-bottom:none;}
@@ -330,7 +341,7 @@
 
   /* ---------- MOBILE FINE-TUNING ---------- */
   @media(max-width:480px){
-    .hero{padding:172px 0 64px;}
+    .hero{padding:196px 0 64px;}
     .hero h1{font-size:21px; line-height:1.5;}
     .hero-sub{font-size:14px;}
     .price-row{flex-direction:column; align-items:flex-start; gap:4px;}
@@ -341,6 +352,20 @@
 <body>
 
 <header id="siteHeader">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-links">
+        <a href="tel:032-343-1123">032-343-1123</a>
+        <span class="sep">·</span>
+        <span class="loc">소새울역 4번 출구 22m</span>
+      </div>
+      <div class="topbar-social">
+        <a href="https://www.instagram.com/vog595900" target="_blank" rel="noopener" aria-label="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="https://blog.naver.com/yl_rlo_" target="_blank" rel="noopener" aria-label="블로그"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg></a>
+        <a href="https://map.naver.com/p/entry/place/1831172720" target="_blank" rel="noopener" aria-label="네이버지도"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></a>
+      </div>
+    </div>
+  </div>
   <div class="masthead">
     <a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 40 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 1 L20 7 M20 7 L15 20 M20 7 L25 20 M15 20 L25 20 M15 20 L9 36 M25 20 L31 36 M15 20 L31 36 M25 20 L9 36 M9 36 L31 36 M9 36 L3 54 M31 36 L37 54 M3 54 Q20 44 37 54 M1 54 L39 54"/></svg></span>VOG HAIR<small>소새울역점</small></a>
   </div>
@@ -496,12 +521,15 @@
 </section>
 
 <!-- ===== STORE INTRO ===== -->
-<section>
+<section class="bg-sand">
   <div class="wrap store-overlap">
     <div class="store-photo reveal" id="storeVisual"></div>
     <div class="store-card reveal">
       <p class="eyebrow">Our Space</p>
-      <h2 style="font-size:clamp(24px,3.2vw,32px); margin-bottom:16px;">매장 소개</h2>
+      <div class="store-heading">
+        <h2 style="font-size:clamp(24px,3.2vw,32px);">매장 소개</h2>
+        <span class="store-heading-rule"></span>
+      </div>
       <p style="color:var(--stone); max-width:44ch; margin-bottom:8px;">1979년 파리에서 시작된 보그헤어의 감성 공간에서,<br>편안한 상담과 시술을 경험하세요.</p>
       <ul class="store-facts">
         <li><strong>위치</strong> 경기도 부천시 소사구 소사로 119,<br>3층 · 소새울역 4번 출구에서 22m</li>
