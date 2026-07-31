@@ -135,8 +135,8 @@
   .brand-mark{width:44px; height:44px; border:1.4px solid currentColor; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; flex:none;}
   .brand-mark svg{width:30px; height:30px;}
   .brand small{font-family:'PretendardVariable',sans-serif; font-weight:400; font-size:12px; opacity:.8; margin-left:2px;}
-  .nav-menu{display:flex; gap:32px; list-style:none;}
-  .nav-menu a{font-size:14px; font-weight:500; color:#fff; opacity:.92; transition:color .35s ease, opacity .2s ease;}
+  .nav-menu{display:flex; gap:34px; list-style:none;}
+  .nav-menu a{font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#fff; opacity:.92; transition:color .35s ease, opacity .2s ease;}
   header.scrolled .nav-menu a{color:var(--charcoal);}
   .nav-menu a:hover{opacity:1; color:var(--brass);}
   .nav-cta{background:var(--brass); color:#fff; padding:11px 24px; border-radius:999px; font-size:13.5px; font-weight:600; transition:background .2s ease, transform .2s ease;}
@@ -216,14 +216,14 @@
   @media(max-width:600px){ .designer-grid{grid-template-columns:1fr;} }
 
   /* ---------- STYLES GRID ---------- */
-  .style-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
-  .style-card{position:relative; aspect-ratio:3/4; border-radius:6px; overflow:hidden; border:1px solid var(--line); box-shadow:0 10px 26px rgba(33,26,19,.05); transition:box-shadow .3s ease;}
-  .style-card:hover{box-shadow:0 18px 36px rgba(33,26,19,.1);}
+  .style-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .style-card{position:relative; aspect-ratio:3/4; border-radius:4px; overflow:hidden; border:1px solid var(--line); transition:box-shadow .3s ease;}
+  .style-card:hover{box-shadow:0 18px 36px rgba(33,26,19,.14);}
   .style-card .s-bg{position:absolute; inset:0; transition:transform .5s ease;}
   .style-card .s-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; transition:transform .5s ease;}
   .style-card:hover .s-bg, .style-card:hover .s-photo{transform:scale(1.06);}
-  .style-card .s-fade{position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(43,38,32,0) 45%, rgba(43,38,32,.72) 100%);}
-  .style-card .s-title{position:absolute; z-index:3; left:16px; right:16px; bottom:14px; color:#fff; font-family:'Noto Serif KR', serif; font-weight:700; font-size:16px;}
+  .style-card .s-fade{position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(43,38,32,0) 55%, rgba(43,38,32,.68) 100%);}
+  .style-card .s-title{position:absolute; z-index:3; left:12px; right:12px; bottom:16px; text-align:center; color:#fff; font-family:'PretendardVariable',sans-serif; font-weight:600; font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase;}
   .style-card{cursor:pointer;}
   @media(max-width:860px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
 
@@ -279,17 +279,18 @@
   @media(max-width:600px){ .review-grid{grid-template-columns:1fr;} }
 
   /* ---------- STORE INTRO ---------- */
-  .store-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
-  .store-visual{aspect-ratio:1/1; border-radius:6px; overflow:hidden; border:1px solid var(--line); display:grid; grid-template-rows:1.4fr 1fr; gap:6px; background:var(--sand);}
-  .store-visual .sv-top{overflow:hidden;}
-  .store-visual .sv-bottom{display:grid; grid-template-columns:1fr 1fr; gap:6px; overflow:hidden;}
-  .store-visual .sv-bottom > div{overflow:hidden;}
-  .store-visual img{width:100%; height:100%; object-fit:cover; display:block;}
+  .store-overlap{position:relative; display:grid; grid-template-columns:1.15fr 1fr; align-items:center;}
+  .store-photo{aspect-ratio:4/5; border-radius:4px; overflow:hidden; border:1px solid var(--line); background:var(--sand);}
+  .store-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .store-card{position:relative; z-index:2; background:#fff; border:1px solid var(--line); margin-left:-84px; padding:48px 44px; box-shadow:0 30px 60px rgba(33,26,19,.12);}
   .store-facts{list-style:none; margin-top:22px;}
   .store-facts li{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14px;}
   .store-facts li:last-child{border-bottom:none;}
   .store-facts strong{min-width:64px; color:var(--charcoal); font-weight:600;}
-  @media(max-width:860px){ .store-grid{grid-template-columns:1fr;} }
+  @media(max-width:860px){
+    .store-overlap{grid-template-columns:1fr;}
+    .store-card{margin-left:20px; margin-right:20px; margin-top:-56px; padding:32px 26px;}
+  }
 
   /* ---------- LOCATION ---------- */
   .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); border-radius:6px; overflow:hidden;}
@@ -501,9 +502,9 @@
 
 <!-- ===== STORE INTRO ===== -->
 <section>
-  <div class="wrap store-grid">
-    <div class="store-visual reveal" id="storeVisual"></div>
-    <div class="reveal">
+  <div class="wrap store-overlap">
+    <div class="store-photo reveal" id="storeVisual"></div>
+    <div class="store-card reveal">
       <p class="eyebrow">Our Space</p>
       <h2 style="font-size:clamp(24px,3.2vw,32px); margin-bottom:16px;">매장 소개</h2>
       <p style="color:var(--stone); max-width:44ch; margin-bottom:8px;">1979년 파리에서 시작된 보그헤어의 감성 공간에서,<br>편안한 상담과 시술을 경험하세요.</p>
@@ -884,13 +885,7 @@ function initStyleModal(){
 function renderStore(){
   const el = document.getElementById('storeVisual');
   if(!el) return;
-  el.innerHTML = `
-    <div class="sv-top"><img src="${STORE_PHOTOS[0]}" alt="매장 사진 1" loading="lazy" onerror="this.parentElement.remove()"></div>
-    <div class="sv-bottom">
-      <div><img src="${STORE_PHOTOS[1]}" alt="매장 사진 2" loading="lazy" onerror="this.parentElement.remove()"></div>
-      <div><img src="${STORE_PHOTOS[2]}" alt="매장 사진 3" loading="lazy" onerror="this.parentElement.remove()"></div>
-    </div>
-  `;
+  el.innerHTML = `<img src="${STORE_PHOTOS[0]}" alt="매장 사진" loading="lazy">`;
 }
 
 const PRICE_TAB_LABELS = { CUT:"CUT", PERM:"PERM", COLOR:"COLOR", ETC:"기타", CLINIC:"CLINIC" };
