@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보그헤어 응암역점 | 응암역 미용실 레이어드컷·펌·염색 전문</title>
+<meta name="description" content="응암역 인근 프리미엄 미용실 보그헤어 응암역점. 레이어드컷·펌·염색·클리닉 전문. 써니 대표원장, 베키 부원장 외 디자이너진 네이버예약 가능. 서울 은평구 예약 문의 02-359-6844.">
+<meta name="theme-color" content="#FDFCFA">
+<link rel="canonical" href="https://ghghdi03.github.io/vog-hair-eungam/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Gowun+Batang:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+
+<style>
+  :root{
+    /* Surface */
+    --c-bg:#FDFCFA;
+    --c-surface:#FFFFFF;
+    --c-muted:#E9E5E0;
+    --c-muted-deep:#DED9D3;
+    /* Line */
+    --c-border:#CFCAC4;
+    --c-border-soft:#E2DDD7;
+    /* Text */
+    --c-text:#2B2825;
+    --c-text-body:#6E6862;
+    --c-text-muted:#9A948D;
+    --c-text-faint:#B8B2AA;
+
+    --fs-hero:34px;
+    --fs-h2:30px;
+    --fs-sub:15px;
+    --fs-h3:20px;
+    --fs-num:15px;
+    --fs-body:12.5px;
+    --fs-btn:11px;
+    --fs-label:11px;
+    --ls-display:0.06em;
+    --ls-sub:0.08em;
+    --ls-body:0.01em;
+    --ls-btn:0.14em;
+    --lh-display:1.22;
+    --lh-body:1.85;
+
+    --col-width:390px;
+    --pad-x:20px;
+    --sec-y:52px;
+    --sec-y-tight:32px;
+    --gap-btn:10px;
+    --gap-block:18px;
+
+    --f-kr-serif:'Gowun Batang','Noto Serif KR',serif;
+    --f-kr-sans:'PretendardVariable','Pretendard',-apple-system,sans-serif;
+    --f-en-serif:'Cormorant Garamond',serif;
+    --f-en-sans:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  body{
+    background:var(--c-bg); color:var(--c-text);
+    font-family:var(--f-kr-sans); font-weight:300; line-height:var(--lh-body);
+    font-size:var(--fs-body); -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  ul{list-style:none;}
+  .page{max-width:420px; margin:0 auto; background:var(--c-surface); position:relative; overflow:hidden;}
+  section{padding:var(--sec-y) 0; position:relative; overflow:hidden;}
+  .tight{padding:var(--sec-y-tight) 0;}
+
+  /* ---------- Shared content container ----------
+     .page already caps outer width per breakpoint (420/640/1120/1280),
+     so .container's own max-width only actually binds at 1440px+ (editorial
+     letterboxing). Below 1024px this is purely a padding utility — values
+     match the old --pad-x progression exactly, so ≤1023px output is unchanged. */
+  .container{width:100%; margin-inline:auto; padding-inline:20px;}
+  @media (min-width:768px){ .container{padding-inline:40px;} }
+  @media (min-width:1024px){ .container{max-width:1120px; padding-inline:64px;} }
+
+  .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease-out, transform .6s ease-out;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- 2-tier heading ---------- */
+  .head2{margin-bottom:var(--gap-block);}
+  .head2 h2{font-family:var(--f-kr-serif); font-weight:700; font-size:var(--fs-h2); letter-spacing:var(--ls-display); line-height:var(--lh-display); text-transform:uppercase; color:var(--c-text);}
+  .head2 .sub{display:block; font-family:var(--f-en-serif); font-style:italic; font-weight:300; font-size:var(--fs-sub); letter-spacing:var(--ls-sub); color:var(--c-text-faint); margin-top:4px;}
+  .head2.right{text-align:right;}
+
+  p.body{color:var(--c-text-body); font-size:var(--fs-body); line-height:var(--lh-body); letter-spacing:var(--ls-body); text-align:justify;}
+
+  /* ---------- Button ---------- */
+  .btn{display:block; width:100%; height:46px; line-height:44px; border:1px solid var(--c-border); border-radius:6px; background:transparent; color:var(--c-text); font-family:var(--f-en-sans); font-weight:400; font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; text-align:center; transition:background .3s ease;}
+  .btn:hover{background:var(--c-muted);}
+  .btn:focus-visible{outline:1px solid var(--c-text); outline-offset:2px;}
+  .btn-stack{display:flex; flex-direction:column; gap:var(--gap-btn);}
+
+  /* ---------- Decorative circle ---------- */
+  .deco-circle{position:absolute; width:150px; height:150px; border:1px solid var(--c-border); border-radius:50%; pointer-events:none; z-index:0;}
+  .deco-circle.r{right:-40px;}
+  .deco-circle.l{left:-40px;}
+
+  /* ---------- Hero ---------- */
+  .hero-media{aspect-ratio:3/4; overflow:hidden; background:var(--c-muted);}
+  .hero-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.75) contrast(.96);}
+  .hero-brand{text-align:center; padding:26px var(--pad-x) 18px;}
+  .hero-brand h1{font-family:var(--f-kr-serif); font-weight:700; font-size:var(--fs-hero); letter-spacing:var(--ls-display); line-height:1.15; text-transform:uppercase;}
+  .hero-brand .sub{display:block; font-family:var(--f-en-serif); font-style:italic; font-size:17px; color:var(--c-text-muted); margin-top:2px;}
+  .hero-caption{background:var(--c-muted); padding:16px var(--pad-x); text-align:center;}
+  .hero-caption p{font-size:11.5px; color:var(--c-text-body); line-height:1.7; letter-spacing:.02em;}
+
+  /* ---------- About / Studio (zigzag) ---------- */
+  .about-copy p{margin-top:16px;}
+  .studio-media{aspect-ratio:3/4; overflow:hidden; background:var(--c-muted); margin:var(--gap-block) 0;}
+  .studio-media img{width:100%; height:100%; object-fit:cover; object-position:50% 15%; filter:saturate(.75) contrast(.96);}
+
+  /* ---------- Price table ---------- */
+  .price-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:var(--gap-block);}
+  .price-tab{font-family:var(--f-en-sans); font-size:10.5px; letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-text-muted); border:1px solid var(--c-border); border-radius:20px; padding:8px 16px; cursor:pointer; transition:all .3s ease;}
+  .price-tab.active{background:var(--c-text); color:var(--c-surface); border-color:var(--c-text);}
+  .price-panel{display:none;}
+  .price-panel.active{display:block;}
+  .price-block{margin-bottom:var(--gap-block);}
+  .price-band{background:var(--c-muted); border-radius:4px; height:32px; display:flex; align-items:center; justify-content:center; font-family:var(--f-kr-serif); font-size:12.5px; letter-spacing:.03em; color:var(--c-text); margin-bottom:2px;}
+  .price-row{display:flex; justify-content:space-between; align-items:baseline; height:30px; border-bottom:1px solid var(--c-border-soft); padding:0 4px; font-size:12px;}
+  .price-row:last-child{border-bottom:none;}
+  .price-row .p-name{color:var(--c-text-muted);}
+  .price-row .p-name .badge{font-size:9px; letter-spacing:.04em; color:var(--c-text); border:1px solid var(--c-border); border-radius:10px; padding:1px 7px; margin-left:6px;}
+  .price-row .p-val{color:var(--c-text); font-variant-numeric:tabular-nums;}
+  .price-note{font-size:11px; color:var(--c-text-muted); text-align:center; margin-top:10px;}
+
+  /* ---------- Service item ---------- */
+  .svc-item{margin-bottom:44px;}
+  .svc-item:last-of-type{margin-bottom:0;}
+  .svc-item-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px;}
+  .svc-item-head .num{font-family:var(--f-en-serif); font-style:italic; font-size:var(--fs-num); color:var(--c-text-muted);}
+  .svc-item-head h3{font-family:var(--f-kr-serif); font-weight:700; font-size:var(--fs-h3); color:var(--c-text);}
+  .svc-item-body{display:grid; grid-template-columns:38% 1fr; gap:14px; margin-bottom:16px;}
+  .svc-item-media{aspect-ratio:3/4; overflow:hidden; background:var(--c-muted);}
+  .svc-item-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.75) contrast(.96);}
+  .svc-item-body p{align-self:center; text-align:center; word-break:keep-all;}
+
+  /* ---------- Team list (line-based, photo + signature style) ---------- */
+  .team-list{border-top:1px solid var(--c-border-soft);}
+  .team-item{padding:24px 0; border-bottom:1px solid var(--c-border-soft);}
+  .team-item-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; gap:12px;}
+  .team-item .t-name{font-family:var(--f-kr-serif); font-weight:700; font-size:14.5px; color:var(--c-text);}
+  .team-item .t-title{font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--c-text-muted); margin-top:3px;}
+  .team-item-body{display:grid; grid-template-columns:38% 1fr; gap:14px; align-items:center;}
+  .team-item-media{aspect-ratio:3/4; overflow:hidden; background:var(--c-muted);}
+  .team-item-media img{width:100%; height:100%; object-fit:cover; filter:saturate(.75) contrast(.96);}
+  .team-item-copy .sig{font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--c-text-faint); margin-bottom:6px;}
+  .team-item-copy p.body{margin-bottom:14px;}
+  .team-item .btn{width:auto; display:inline-block; padding:0 22px;}
+
+  /* ---------- Map ---------- */
+  .map-media{aspect-ratio:4/3; overflow:hidden; background:var(--c-muted); filter:saturate(.6) contrast(.97);}
+  .map-media iframe{width:100%; height:100%; border:0; display:block;}
+  .map-addr{padding:16px var(--pad-x) 0;}
+  .map-addr p{font-size:12px; color:var(--c-text-body); line-height:1.8;}
+  .map-addr .row{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--c-border-soft); font-size:11.5px;}
+  .map-addr .row:last-of-type{border-bottom:none;}
+  .map-addr .row strong{color:var(--c-text-muted); font-weight:400; letter-spacing:.04em; text-transform:uppercase; font-size:10px;}
+  .map-addr .row span{color:var(--c-text); text-align:right;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex; flex-direction:column; gap:8px;}
+  .faq-item{background:var(--c-muted); border-radius:4px; overflow:hidden;}
+  .faq-q{min-height:44px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 14px; cursor:pointer;}
+  .faq-q span{font-family:var(--f-en-sans); font-size:var(--fs-label); letter-spacing:.04em; text-transform:uppercase; color:var(--c-text); font-weight:400;}
+  .faq-icon{flex:none; width:22px; height:22px; border:1px solid var(--c-border); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--c-text); transition:transform .3s ease;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease; background:var(--c-surface);}
+  .faq-a p{padding:14px 14px 16px; font-size:12px; color:var(--c-text-body); line-height:1.8; text-align:justify;}
+
+  footer{text-align:center; padding:36px var(--pad-x) 60px;}
+  footer p{font-size:10.5px; color:var(--c-text-faint); letter-spacing:.03em; line-height:1.9;}
+
+  /* ================= RESPONSIVE ================= */
+  @media (min-width:768px){
+    :root{ --pad-x:40px; --sec-y:72px; }
+    .page{max-width:640px;}
+    .price-tabs{justify-content:center;}
+    .price-cols{max-width:480px; margin:0 auto;}
+    .svc-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px 40px;}
+    .svc-item{margin-bottom:0;}
+  }
+  @media (min-width:1024px){
+    :root{
+      --pad-x:64px; --sec-y:104px;
+      --fs-hero:64px; --fs-h2:46px; --fs-sub:20px; --fs-h3:26px; --fs-body:14px; --fs-btn:12px;
+    }
+    .page{max-width:1120px;}
+    .hero-section{display:grid; grid-template-columns:1fr 1fr; align-items:stretch; min-height:88vh;}
+    .hero-media{aspect-ratio:auto; height:100%;}
+    .hero-brand{align-self:center; text-align:left; padding:0 64px;}
+    .hero-caption{grid-column:1 / -1;}
+    .btn-stack{flex-direction:row;}
+    .btn-stack .btn{width:220px;}
+    .about-section{display:grid; grid-template-columns:1.2fr 1fr; gap:64px; align-items:center;}
+    .about-section .studio-media{margin:0;}
+    p.body{max-width:52em;}
+    .svc-grid{grid-template-columns:repeat(3,1fr);}
+    .svc-item-body{grid-template-columns:1fr; grid-template-rows:auto auto;}
+    /* Price section: centered on desktop, slightly larger than mobile. */
+    #price .head2{text-align:center;}
+    .price-tabs{justify-content:center;}
+    .price-cols{max-width:760px; margin:0 auto;}
+    .price-note{text-align:center; max-width:760px; margin:10px auto 0;}
+    .price-band{font-size:14px; height:34px;}
+    .price-row{font-size:13px; height:34px;}
+    .price-tab{font-size:11px; padding:9px 18px;}
+    .deco-circle{width:280px; height:280px;}
+    .team-list{max-width:52em;}
+  }
+  @media (min-width:1440px){
+    .page{max-width:1280px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HERO ===== -->
+  <section id="top" class="tight" style="padding-top:0;">
+    <div class="hero-section">
+      <div class="hero-media">
+        <img src="images/hero/hero.jpg" alt="보그헤어 응암역점" onerror="this.parentElement.style.background='var(--c-muted)'; this.remove();">
+      </div>
+      <div class="hero-brand reveal">
+        <h1>보그헤어<br>응암역점</h1>
+        <span class="sub">hair studio</span>
+      </div>
+    </div>
+    <div class="hero-caption">
+      <p>머릿결은 당신을 표현하는 언어입니다.<br>1979년 파리에서 시작된 상담 철학으로 결을 정돈합니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== BUTTON STACK ===== -->
+  <section class="tight">
+    <div class="container">
+      <div class="btn-stack reveal">
+        <a class="btn" href="#service">서비스 & 가격</a>
+        <a class="btn" href="#location">오시는 길</a>
+        <a class="btn" href="#faq">자주 묻는 질문</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="deco-circle r"></div>
+    <div class="container about-section">
+      <div class="about-copy reveal" style="position:relative; z-index:1;">
+        <div class="head2">
+          <h2>소개</h2>
+          <span class="sub">about us</span>
+        </div>
+        <p class="body">보그헤어는 1979년 파리에서 처음 문을 연 이후, 전 세계 약 1,000개 매장으로 성장해 온 헤어살롱 브랜드입니다. 모든 디자이너는 7단계 아카데미 교육 과정을 거쳤으며, 고객님과의 1:1 맞춤 상담을 바탕으로 시술을 진행합니다.</p>
+        <p class="body">보그헤어 응암역점은 이러한 철학을 그대로 이어받아, 응암역을 찾는 고객님들에게 서두르지 않는 상담과 정제된 공간을 전합니다.</p>
+      </div>
+      <div class="studio-media reveal" style="position:relative; z-index:1;">
+        <img src="images/store/store-1.jpg" alt="보그헤어 응암역점 매장" loading="lazy" onerror="this.parentElement.style.background='var(--c-muted)'; this.remove();">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BODY + CTA ===== -->
+  <section class="tight">
+    <div class="container">
+      <p class="body reveal">일상 속에서 자연스럽게 어우러지는 결을 바탕으로, 작은 포인트 요소를 가미해 응암역점만의 방식으로 스타일을 완성합니다.<br>모발 상태와 라이프스타일을 고려한 상담을 먼저 진행합니다.</p>
+      <div style="margin-top:var(--gap-block);">
+        <a class="btn reveal" href="#service" style="max-width:280px; margin:0 auto;">시술 둘러보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICE ITEMS ===== -->
+  <section id="service">
+    <div class="container">
+      <div class="head2 reveal">
+        <h2>시그니처 스타일</h2>
+        <span class="sub">signature style</span>
+      </div>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== PRICE TABLE ===== -->
+  <section id="price" style="background:var(--c-bg);">
+    <div class="container">
+      <div class="head2 reveal">
+        <h2>가격 안내</h2>
+        <span class="sub">price list</span>
+      </div>
+      <div class="price-tabs reveal" id="priceTabs"></div>
+      <div class="price-cols" id="pricePanels"></div>
+      <p class="price-note">기장에 따라 추가 요금이 발생할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== TEAM (STUDIO) ===== -->
+  <section id="team">
+    <div class="deco-circle l"></div>
+    <div class="container">
+      <div class="reveal" style="position:relative; z-index:1;">
+        <div class="head2 right">
+          <h2>디자이너</h2>
+          <span class="sub">our team</span>
+        </div>
+      </div>
+      <div class="team-list reveal" id="teamList" style="position:relative; z-index:1;"></div>
+    </div>
+  </section>
+
+  <!-- ===== MAP / LOCATION ===== -->
+  <section id="location">
+    <div class="container">
+      <div class="head2 reveal">
+        <h2>오시는 길</h2>
+        <span class="sub">location</span>
+      </div>
+      <div class="map-media reveal">
+        <iframe src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%9D%80%ED%8F%89%EB%A1%9C%2094&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="보그헤어 응암역점 지도"></iframe>
+      </div>
+      <div class="map-addr reveal">
+        <div class="row"><strong>주소</strong><span>서울특별시 은평구 은평로 94 2층</span></div>
+        <!-- ⚠️ TODO: 응암역 출구 번호/도보 거리 확인 후 채우기 -->
+        <div class="row"><strong>오시는 길</strong><span>응암역 인근</span></div>
+        <div class="row"><strong>전화</strong><span>02-359-6844</span></div>
+        <div class="row"><strong>운영시간</strong><span>매일 10:00 – 20:00</span></div>
+        <div class="row"><strong>주차</strong><span>매장 앞 2대<br>(만차 시 인근 이마트 주차 추천)</span></div>
+      </div>
+      <div style="margin-top:var(--gap-block);">
+        <a class="btn reveal" href="https://map.naver.com/p/entry/place/1931497287" target="_blank" rel="noopener" data-ga-event="directions_click" data-map="naver">지도에서 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="container">
+      <div class="head2 reveal">
+        <h2>자주 묻는 질문</h2>
+        <span class="sub">questions</span>
+      </div>
+      <div class="faq-list reveal" id="faqList"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 보그헤어 응암역점.<br>서울특별시 은평구 은평로 94 2층 · 02-359-6844</p>
+  </footer>
+
+</div>
+
+<script>
+const CONFIG = {
+  telHref: "tel:02-359-6844",
+  instagram: "https://www.instagram.com/voghair_6844",
+  naverPlaceUrl: "https://map.naver.com/p/entry/place/1931497287",
+  defaultReserveUrl: "https://map.naver.com/p/entry/place/1931497287?c=15.00,0,0,3,dh&placePath=%2Fstylist%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608031453%26locale%3Dko%26svcName%3Dmap_pcv5%26entry%3Dbmp",
+};
+function resolveReserveHref(url){ return (url && url.length) ? url : (CONFIG.defaultReserveUrl || CONFIG.naverPlaceUrl || CONFIG.telHref); }
+
+const SERVICES = [
+  { name:"레이어드펌", photo:"images/styles/레이어드펌.jpg", desc:"레이어드컷 위에 웨이브를 더해 볼륨과 살랑거림을 동시에 잡아줍니다." },
+  { name:"C컬펌", photo:"images/styles/C컬펌.jpg", desc:"끝만 안으로 말아주는 은은한 C컬로 단정하면서 여성스러운 인상을 줍니다." },
+  { name:"볼륨매직", photo:"images/styles/볼륨매직.jpg", desc:"뿌리 볼륨과 곱슬기를 정리해 매끈하게 펴주는 시술입니다." },
+  { name:"염색", photo:"images/styles/염색.jpg", desc:"원하는 컬러 톤에 맞춰 모발 상태를 진단한 후 진행합니다." },
+  { name:"탈색", photo:"images/styles/탈색.jpg", desc:"밝은 컬러 표현을 위한 사전 작업으로, 모발 상태를 보며 단계별로 진행합니다." },
+  { name:"클리닉", photo:"images/styles/클리닉.jpg", desc:"손상된 모발에 영양과 수분을 채워 매끄러운 상태로 회복시켜 줍니다." },
+];
+
+// ⚠️ 디자이너별 시그니처 스타일이 확정되면 아래 값을 채워주세요.
+const TEAM = [
+  { name:"써니 대표원장", title:"대표원장", signature:"시그니처 스타일 ⚠️ 확인 후 입력", photo:"images/designers/써니.jpg", reserve:"https://m.booking.naver.com/booking/13/bizes/154699/items/3008648?area=pll&lang=ko&theme=place" },
+  { name:"베키 부원장", title:"부원장", signature:"시그니처 스타일 ⚠️ 확인 후 입력", photo:"images/designers/베키.jpg", reserve:"https://m.booking.naver.com/booking/13/bizes/154699/items/3326011?area=pll&lang=ko&theme=place" },
+  { name:"솔 디자이너", title:"디자이너", signature:"시그니처 스타일 ⚠️ 확인 후 입력", photo:"images/designers/솔.jpg", reserve:"https://m.booking.naver.com/booking/13/bizes/154699/items/2905804?area=pll&lang=ko&theme=place" },
+  { name:"주이 디자이너", title:"디자이너", signature:"시그니처 스타일 ⚠️ 확인 후 입력", photo:"images/designers/주이.jpg", reserve:"https://m.booking.naver.com/booking/13/bizes/154699/items/4635895?area=pll&lang=ko&theme=place" },
+  { name:"은진 디자이너", title:"디자이너", signature:"시그니처 스타일 ⚠️ 확인 후 입력", photo:"images/designers/은진.jpg", reserve:"https://m.booking.naver.com/booking/13/bizes/154699/items/6972805?area=pll&lang=ko&theme=place" },
+];
+
+const PRICE_TAB_LABELS = { CUT:"컷", DRY:"드라이", COLOR:"염색", PERM:"펌", HEATPERM:"열펌", CLINIC:"클리닉" };
+const PRICES = {
+  CUT: { band:"CUT", items: [
+    { name:"학생컷 (디자이너)", price:"18,000원" },
+    { name:"학생컷 (원장·부원장)", price:"20,000원" },
+    { name:"남성컷 (디자이너)", price:"21,000원", featured:true },
+    { name:"남성컷 (원장·부원장)", price:"23,000원" },
+    { name:"여성컷 (디자이너)", price:"23,000원", featured:true },
+    { name:"여성컷 (원장·부원장)", price:"26,000원" },
+    { name:"헤드스파컷 (디자이너)", price:"43,000원" },
+    { name:"헤드스파컷 (원장·부원장)", price:"45,000원" },
+  ]},
+  DRY: { band:"DRY", items: [
+    { name:"샴푸", price:"15,000원" },
+    { name:"붙임머리·탈색 샴푸", price:"25,000원" },
+    { name:"드라이", price:"25,000원", featured:true },
+    { name:"붙임머리 드라이", price:"35,000원" },
+  ]},
+  COLOR: { band:"COLOR", items: [
+    { name:"전체염색", price:"100,000원", featured:true },
+    { name:"뿌리염색", price:"55,000원" },
+    { name:"아윤채 뿌리염색", price:"65,000원" },
+    { name:"아윤채 전체염색", price:"120,000원" },
+    { name:"뿌리탈색", price:"80,000원" },
+    { name:"전체탈색", price:"120,000원" },
+    { name:"엘로이", price:"120,000원" },
+  ]},
+  PERM: { band:"PERM", items: [
+    { name:"콜드펌(롯드펌)", price:"100,000원", featured:true },
+    { name:"특수펌", price:"120,000원" },
+    { name:"코어펌", price:"140,000원" },
+    { name:"앞머리펌", price:"30,000원" },
+    { name:"부분펌", price:"50,000원" },
+    { name:"다운펌", price:"30,000원" },
+  ]},
+  HEATPERM: { band:"HEAT PERM", items: [
+    { name:"셋팅·디지털", price:"160,000원", featured:true },
+    { name:"볼륨매직", price:"180,000원", featured:true },
+    { name:"매직셋팅", price:"200,000원" },
+    { name:"아윤채 볼륨매직", price:"200,000원" },
+  ]},
+  CLINIC: { band:"CLINIC", items: [
+    { name:"밀본 클리닉 [3단계]", price:"70,000원" },
+    { name:"아윤채 클리닉 [5단계]", price:"100,000원" },
+    { name:"아윤채 두피클리닉", price:"70,000원" },
+  ]},
+};
+
+const FAQ = [
+  { q:"예약은 어떻게 하나요?", a:"보그헤어 응암역점은 네이버 예약을 통해 원하는 날짜와 시간, 디자이너를 직접 선택하여 편리하게 예약하실 수 있습니다. 예약 전 궁금한 사항은 전화 문의도 가능합니다." },
+  { q:"첫 방문인데 상담만 받아도 되나요?", a:"물론 가능합니다. 현재 모발 상태와 원하는 스타일을 충분히 상담한 후 시술을 진행합니다." },
+  { q:"가격은 어떻게 되나요?", a:"시술 가격은 네이버 플레이스에서 확인하실 수 있으며, 추가 비용이 있는 경우 사전에 안내드립니다." },
+  { q:"주차는 가능한가요?", a:"네, 매장 앞에 2대까지 주차가 가능합니다. 자리가 없을 경우 인근 이마트 주차장 이용을 추천드립니다." },
+  { q:"시술 시간은 얼마나 걸리나요?", a:"시술 종류와 모발 상태에 따라 다르지만, 충분한 상담을 위해 여유 있는 시간을 권장드립니다." },
+];
+
+function renderServices(){
+  document.getElementById('svcGrid').innerHTML = SERVICES.map((s,i) => `
+    <div class="svc-item reveal">
+      <div class="svc-item-head">
+        <span class="num">(${String(i+1).padStart(2,'0')})</span>
+        <h3>${s.name}</h3>
+      </div>
+      <div class="svc-item-body">
+        <div class="svc-item-media"><img src="${s.photo}" alt="${s.name}" loading="lazy"></div>
+        <p class="body">${s.desc}</p>
+      </div>
+    </div>
+  `).join('');
+  initReveal(document.querySelectorAll('#svcGrid .reveal'));
+}
+
+function renderTeam(){
+  document.getElementById('teamList').innerHTML = TEAM.map(t => `
+    <div class="team-item reveal">
+      <div class="team-item-head">
+        <div>
+          <div class="t-name">${t.name}</div>
+          <div class="t-title">${t.title}</div>
+        </div>
+      </div>
+      <div class="team-item-body">
+        <div class="team-item-media"><img src="${t.photo}" alt="${t.name}" loading="lazy" onerror="this.parentElement.style.background='var(--c-muted)'; this.remove();"></div>
+        <div class="team-item-copy">
+          <div class="sig">signature style</div>
+          <p class="body">${t.signature}</p>
+          <a class="btn" href="${resolveReserveHref(t.reserve)}" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="team" data-designer="${t.name}">예약하기</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  initReveal(document.querySelectorAll('#teamList .reveal'));
+}
+
+function renderPricing(){
+  const tabsEl = document.getElementById('priceTabs');
+  const panelsEl = document.getElementById('pricePanels');
+  const keys = Object.keys(PRICES);
+  tabsEl.innerHTML = keys.map((k,i) => `<div class="price-tab ${i===0?'active':''}" data-tab="${k}">${PRICE_TAB_LABELS[k]||k}</div>`).join('');
+  panelsEl.innerHTML = keys.map((k,i) => `
+    <div class="price-panel ${i===0?'active':''}" data-panel="${k}">
+      <div class="price-block">
+        <div class="price-band">${PRICES[k].band}</div>
+        ${PRICES[k].items.map(row => `
+          <div class="price-row">
+            <span class="p-name">${row.name}${row.featured ? '<span class="badge">대표</span>' : ''}</span>
+            <span class="p-val">${row.price}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+  tabsEl.addEventListener('click', (e) => {
+    const tab = e.target.closest('.price-tab');
+    if(!tab) return;
+    tabsEl.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    panelsEl.querySelectorAll('.price-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === tab.dataset.tab));
+  });
+}
+
+function renderFaq(){
+  const list = document.getElementById('faqList');
+  list.innerHTML = FAQ.map(f => `
+    <div class="faq-item">
+      <div class="faq-q"><span>${f.q}</span><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+  list.addEventListener('click', (e) => {
+    const q = e.target.closest('.faq-q');
+    if(!q) return;
+    const item = q.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const opening = !item.classList.contains('open');
+    list.querySelectorAll('.faq-item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-a').style.maxHeight = null; });
+    if(opening){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+}
+
+function initReveal(scopeEls){
+  const els = scopeEls || document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e,i) => {
+        if(e.isIntersecting){
+          setTimeout(() => e.target.classList.add('in'), i * 60);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:0.14 });
+    els.forEach(el => io.observe(el));
+  } else { els.forEach(el => el.classList.add('in')); }
+}
+
+function trackEvent(name, params){
+  if(typeof window.gtag === 'function'){ window.gtag('event', name, params); } else { console.log('[GA4 event]', name, params); }
+}
+function initEventBinding(){
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-ga-event]');
+    if(!el) return;
+    const name = el.getAttribute('data-ga-event');
+    const params = {};
+    Array.from(el.attributes).forEach(attr => { if(attr.name.startsWith('data-') && attr.name !== 'data-ga-event'){ params[attr.name.replace('data-','').replace(/-/g,'_')] = attr.value; } });
+    trackEvent(name, params);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderServices();
+  renderTeam();
+  renderPricing();
+  renderFaq();
+  initReveal();
+  initEventBinding();
+});
+</script>
+
+</body>
+</html>

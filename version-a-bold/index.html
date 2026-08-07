@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보그헤어 응암역점 | 응암역 미용실 레이어드컷·펌·염색 전문</title>
+<meta name="description" content="응암역 인근 프리미엄 미용실 보그헤어 응암역점. 레이어드컷·펌·염색·클리닉 전문. 써니 대표원장, 베키 부원장 외 디자이너진 네이버예약 가능. 서울 은평구 예약 문의 02-359-6844.">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://ghghdi03.github.io/vog-hair-eungam/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+
+<style>
+  :root{
+    --black:#0D0D0D;
+    --white:#FAFAF8;
+    --off:#F1F0EC;
+    --rust:#C1440E;
+    --rust-light:#E2703F;
+    --stone:#8A8681;
+    --line:rgba(250,250,248,0.16);
+    --line-dark:rgba(13,13,13,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
+  body{
+    background:var(--white); color:var(--black);
+    font-family:'PretendardVariable','Inter',-apple-system,sans-serif;
+    font-weight:400; line-height:1.6; -webkit-font-smoothing:antialiased;
+    font-size:15.5px; overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  ul{list-style:none;}
+  .wrap{max-width:1440px; margin:0 auto; padding:0 40px;}
+  h1,h2,h3{font-family:'Space Grotesk','Noto Sans KR',sans-serif; font-weight:600; letter-spacing:-0.01em; word-break:keep-all;}
+  .eyebrow{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--rust); display:block; margin-bottom:18px;}
+  section{padding:130px 0;}
+  @media(max-width:1100px){ section{padding:90px 0;} .wrap{padding:0 26px;} }
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  .btn{display:inline-flex; align-items:center; gap:10px; background:var(--black); color:var(--white); padding:17px 32px; font-weight:600; font-size:13px; letter-spacing:.04em; border:2px solid var(--black); transition:background .3s ease, color .3s ease;}
+  .btn:hover{background:var(--rust); border-color:var(--rust);}
+  .btn.outline{background:transparent; color:var(--black); border-color:var(--black);}
+  .btn.outline:hover{background:var(--black); color:var(--white);}
+  .btn.on-dark{background:var(--white); color:var(--black); border-color:var(--white);}
+  .btn.on-dark:hover{background:var(--rust); color:var(--white); border-color:var(--rust);}
+  .btn.on-dark.outline{background:transparent; color:var(--white); border-color:var(--white);}
+  .btn.on-dark.outline:hover{background:var(--white); color:var(--black);}
+
+  .sec-head{max-width:640px; margin-bottom:64px;}
+  .sec-head h2{font-size:clamp(30px,4.4vw,54px); line-height:1.12;}
+  .sec-head p{color:var(--stone); font-size:14.5px; margin-top:16px; max-width:50ch;}
+  .head-row{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:64px;}
+  .head-row .sec-head{margin-bottom:0;}
+  @media(max-width:700px){ .head-row{flex-direction:column; align-items:flex-start; gap:20px;} }
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed; top:0; left:0; right:0; z-index:90; background:var(--black); border-bottom:1px solid var(--line);}
+  .bar{display:flex; align-items:center; justify-content:space-between; max-width:1440px; margin:0 auto; padding:20px 40px;}
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:-.02em; color:var(--white);}
+  .brand span{color:var(--rust);}
+  .nav-menu{display:flex; gap:32px;}
+  .nav-menu a{font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--white); opacity:.7; transition:opacity .3s ease;}
+  .nav-menu a:hover{opacity:1;}
+  @media(max-width:960px){ .nav-menu{display:none;} }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{background:var(--rust); color:var(--white); overflow:hidden; padding:14px 0; white-space:nowrap;}
+  .marquee-track{display:inline-flex; animation:marquee 26s linear infinite;}
+  .marquee-track span{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; letter-spacing:.04em; padding:0 28px; text-transform:uppercase;}
+  @keyframes marquee{ 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+  /* ---------- MOBILE BAR ---------- */
+  .mobile-bar{position:fixed; left:0; right:0; bottom:0; z-index:95; display:none; background:var(--black); border-top:1px solid var(--line);}
+  .mobile-bar-grid{display:grid; grid-template-columns:1fr 1fr 1fr 1.3fr;}
+  .mobile-bar a{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:12px 4px; font-size:10.5px; color:var(--white); font-weight:600;}
+  .mobile-bar a svg{width:18px; height:18px; stroke:var(--white);}
+  .mobile-bar a.reserve{background:var(--rust);}
+  @media(max-width:760px){ .mobile-bar{display:block;} }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; background:var(--black); color:var(--white); padding:220px 0 0; overflow:hidden;}
+  .hero-giant{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(70px,15vw,220px); line-height:.86; letter-spacing:-.03em; color:transparent; -webkit-text-stroke:1px rgba(250,250,248,.18); position:absolute; top:90px; left:0; right:0; text-align:center; z-index:0; pointer-events:none; user-select:none;}
+  .hero-row{position:relative; z-index:1; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:end; padding-bottom:0;}
+  .hero-copy .eyebrow{color:var(--rust-light);}
+  .hero h1{font-size:clamp(34px,5.2vw,66px); line-height:1.08; margin-bottom:26px; color:var(--white);}
+  .hero-sub{color:rgba(250,250,248,.7); font-size:14.5px; max-width:42ch; margin-bottom:34px;}
+  .hero-media{aspect-ratio:3/4; overflow:hidden; filter:grayscale(1) contrast(1.05); transition:filter .5s ease;}
+  .hero-media:hover{filter:grayscale(0) contrast(1);}
+  .hero-media img{width:100%; height:100%; object-fit:cover;}
+  .hero-bottom{position:relative; z-index:1; display:flex; justify-content:space-between; align-items:center; padding:40px 0; border-top:1px solid var(--line); margin-top:56px;}
+  .hero-bottom .idx{font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(250,250,248,.5); letter-spacing:.08em;}
+  @media(max-width:900px){ .hero-row{grid-template-columns:1fr; gap:32px;} .hero-giant{font-size:clamp(50px,18vw,120px); top:70px;} .hero-bottom{flex-direction:column; gap:16px; align-items:flex-start;} }
+
+  /* ---------- STAT STRIP ---------- */
+  .stat-strip{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark);}
+  .stat{padding:44px 40px; border-right:1px solid var(--line-dark);}
+  .stat:last-child{border-right:none;}
+  .stat b{font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,3.6vw,44px); display:block; margin-bottom:6px;}
+  .stat span{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--stone);}
+  @media(max-width:900px){ .stat-strip{grid-template-columns:repeat(2,1fr);} .stat{padding:32px 24px;} }
+
+  /* ---------- DESIGNER (SCROLL SNAP, DUOTONE) ---------- */
+  .designer-scroll{display:flex; gap:2px; overflow-x:auto; scroll-snap-type:x mandatory; max-width:100%; padding:0 40px;}
+  .designer-scroll::-webkit-scrollbar{height:0;}
+  .designer-card{flex:none; scroll-snap-align:start; width:300px; position:relative;}
+  .d-photo{aspect-ratio:3/4; overflow:hidden; background:var(--off); filter:grayscale(1) contrast(1.05); transition:filter .5s ease;}
+  .designer-card:hover .d-photo{filter:grayscale(0) contrast(1);}
+  .d-photo img{width:100%; height:100%; object-fit:cover;}
+  .d-fallback{width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--off); font-family:'Space Grotesk',sans-serif; color:var(--stone); font-size:14px; text-align:center;}
+  .d-overlay{position:absolute; left:0; right:0; bottom:0; padding:20px; background:linear-gradient(180deg,transparent,rgba(13,13,13,.85)); color:#fff;}
+  .d-overlay .designer-name{font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600;}
+  .d-overlay .designer-title{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--rust-light); margin:4px 0 10px;}
+  .d-overlay .designer-actions{display:flex; gap:16px; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;}
+  .d-overlay .designer-actions a{opacity:.8; border-bottom:1px solid transparent;}
+  .d-overlay .designer-actions a:hover{opacity:1; border-color:#fff;}
+
+  /* ---------- SERVICE (HOVER LIST + STICKY PREVIEW) ---------- */
+  .service-layout{display:grid; grid-template-columns:1fr 420px; gap:60px; align-items:start;}
+  .service-list-row{display:flex; align-items:baseline; gap:24px; padding:26px 0; border-bottom:1px solid var(--line-dark); cursor:pointer; transition:padding-left .3s ease;}
+  .service-list-row:hover, .service-list-row.active{padding-left:16px;}
+  .service-list-row .s-num{font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--stone);}
+  .service-list-row .s-name{font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,2.6vw,32px); font-weight:600; transition:color .3s ease;}
+  .service-list-row:hover .s-name, .service-list-row.active .s-name{color:var(--rust);}
+  .service-list-row .s-desc{font-size:13px; color:var(--stone); margin-left:auto; max-width:32ch; display:none;}
+  .service-preview{position:sticky; top:120px; aspect-ratio:4/5; overflow:hidden; background:var(--off);}
+  .service-preview img{width:100%; height:100%; object-fit:cover; transition:opacity .3s ease;}
+  @media(max-width:900px){ .service-layout{grid-template-columns:1fr;} .service-preview{position:static; margin-top:24px;} }
+  @media(max-width:600px){ .service-list-row .s-desc{display:none !important;} }
+
+  /* ---------- PRICE ---------- */
+  .price-tabs{display:flex; gap:0; border-bottom:1px solid var(--line-dark); margin-bottom:0; flex-wrap:wrap;}
+  .price-tab{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; letter-spacing:.04em; color:var(--stone); cursor:pointer; padding:16px 26px; border-bottom:2px solid transparent; transition:color .3s ease, border-color .3s ease;}
+  .price-tab.active{color:var(--black); border-color:var(--rust);}
+  .price-panel{display:none; padding-top:8px;}
+  .price-panel.active{display:block;}
+  .price-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:20px 0; border-bottom:1px solid var(--line-dark); font-size:15px;}
+  .price-row .p-name .badge{font-family:'Space Grotesk',sans-serif; font-size:9.5px; font-weight:700; color:var(--rust); border:1px solid var(--rust); padding:2px 8px; margin-left:10px;}
+  .price-row .p-val{font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; white-space:nowrap;}
+  .price-note{font-size:12px; color:var(--stone); margin-top:32px;}
+
+  /* ---------- GALLERY (FILMSTRIP) ---------- */
+  .film-scroll{display:flex; gap:2px; overflow-x:auto; scroll-snap-type:x mandatory; max-width:100%; padding:0 40px;}
+  .film-scroll::-webkit-scrollbar{height:0;}
+  .film-item{flex:none; scroll-snap-align:start; width:min(70vw,460px); aspect-ratio:4/5; overflow:hidden; position:relative;}
+  .film-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .film-item:hover img{transform:scale(1.05);}
+  .film-item .f-cap{position:absolute; left:16px; bottom:14px; color:#fff; font-family:'Space Grotesk',sans-serif; font-size:14px; opacity:0; transition:opacity .3s ease;}
+  .film-item::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(13,13,13,.6)); opacity:0; transition:opacity .3s ease;}
+  .film-item:hover::after, .film-item:hover .f-cap{opacity:1;}
+
+  /* ---------- REVIEW (MARQUEE TESTIMONIALS) ---------- */
+  .review-marquee{overflow:hidden; border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); padding:50px 0;}
+  .review-track{display:inline-flex; gap:60px; animation:reviewScroll 34s linear infinite;}
+  .review-item{flex:none; width:420px;}
+  .review-item .r-text{font-size:18px; font-family:'Space Grotesk',sans-serif; font-weight:500; line-height:1.5; margin-bottom:14px;}
+  .review-item .r-meta{font-size:11.5px; color:var(--stone); text-transform:uppercase; letter-spacing:.06em;}
+  @keyframes reviewScroll{ 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+  /* ---------- LOCATION ---------- */
+  .loc-wrap{position:relative; background:var(--black);}
+  .loc-map{height:600px; filter:grayscale(.3) invert(1) contrast(.9) hue-rotate(180deg);}
+  .loc-map iframe{width:100%; height:100%; border:0; display:block;}
+  .loc-panel{position:absolute; left:0; bottom:0; background:var(--black); color:#fff; padding:48px; max-width:420px; border-top:2px solid var(--rust); border-right:2px solid var(--rust);}
+  .loc-panel h3{font-size:22px; margin-bottom:22px;}
+  .loc-panel .row{display:flex; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:13px;}
+  .loc-panel .row:last-of-type{border-bottom:none;}
+  .loc-panel .row strong{min-width:56px; color:var(--rust-light); font-weight:600; letter-spacing:.04em; text-transform:uppercase; font-size:10.5px;}
+  .loc-btns{display:flex; gap:10px; margin-top:24px; flex-wrap:wrap;}
+  @media(max-width:900px){ .loc-map{height:400px;} .loc-panel{position:static; max-width:none; border-right:none;} }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--line-dark);}
+  .faq-q{display:flex; align-items:baseline; gap:24px; padding:28px 0; cursor:pointer;}
+  .faq-q .q-idx{font-family:'Space Grotesk',sans-serif; color:var(--rust); font-size:13px; min-width:36px;}
+  .faq-q .q-text{flex:1; font-size:16px; font-weight:500;}
+  .faq-q .plus{font-size:22px; color:var(--stone); font-weight:300; transition:transform .3s ease;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .faq-a p{padding:0 0 28px 60px; color:var(--stone); font-size:13.5px; max-width:60ch; line-height:1.85;}
+
+  /* ---------- RESERVATION ---------- */
+  .reservation{background:var(--black); color:#fff; text-align:center; padding:180px 0;}
+  .reservation h2{color:#fff; font-size:clamp(32px,5vw,64px); margin-bottom:28px;}
+  .reservation p{color:rgba(250,250,248,.7); max-width:46ch; margin:0 auto 44px; font-size:14.5px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--black); color:rgba(250,250,248,.7); padding:0 0 30px; border-top:1px solid var(--line);}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding:80px 0 56px;}
+  .footer-brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; color:#fff; margin-bottom:14px;}
+  footer .col-title{font-family:'Space Grotesk',sans-serif; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--rust-light); margin-bottom:16px;}
+  footer li{margin-bottom:10px; font-size:13px;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid var(--line); padding:22px 0; font-size:11px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  @media(max-width:860px){ .footer-grid{grid-template-columns:1fr 1fr; gap:32px;} }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="bar">
+    <a class="brand" href="#top">VOG<span>HAIR</span></a>
+    <ul class="nav-menu">
+      <li><a href="#designers">Designer</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#price">Price</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a class="btn on-dark" href="tel:02-359-6844">02-359-6844</a>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>응암역 도보 이용 가능 · 네이버예약 가능 · 보그헤어 응암역점 · 써니 대표원장 · 매일 10:00–20:00 ·</span>
+      <span>응암역 도보 이용 가능 · 네이버예약 가능 · 보그헤어 응암역점 · 써니 대표원장 · 매일 10:00–20:00 ·</span>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-bar">
+  <div class="mobile-bar-grid">
+    <a href="tel:02-359-6844" data-ga-event="call_click" data-location="mobile_bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.4 12.4 0 0 0 .7 2.8 2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      전화
+    </a>
+    <a href="https://map.naver.com/p/entry/place/1931497287" target="_blank" rel="noopener" data-ga-event="directions_click" data-map="naver">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg>
+      길찾기
+    </a>
+    <a href="https://www.instagram.com/voghair_6844" target="_blank" rel="noopener" data-ga-event="instagram_click" data-location="mobile_bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      인스타
+    </a>
+    <a class="reserve" href="#" id="reserveMobileBtn" data-ga-event="reserve_click" data-location="mobile_bar" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+      예약
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-giant">HAIR</div>
+  <div class="wrap">
+    <div class="hero-row">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Vog Hair · Eungam Station</span>
+        <h1>결을 다루는<br>기술, 보그헤어</h1>
+        <p class="hero-sub">응암역 프리미엄 헤어살롱. 1979년 파리에서 시작된 상담 철학 그대로, 정확한 진단과 시술을 제공합니다.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn on-dark" href="#" id="reserveHeroBtn" data-ga-event="reserve_click" data-location="hero" target="_blank" rel="noopener">예약하기</a>
+          <a class="btn on-dark outline" href="tel:02-359-6844" data-ga-event="call_click" data-location="hero">전화하기</a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <!-- ⚠️ TODO: images/hero/hero.jpg 응암역점 대표 사진으로 교체 필요 -->
+        <img src="images/hero/hero.jpg" alt="보그헤어 응암역점" onerror="this.parentElement.style.background='#1a1a1a'; this.remove();">
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <span class="idx">SEOUL · EUNGAM</span>
+      <span class="idx">EST. 1979, PARIS</span>
+    </div>
+  </div>
+</section>
+
+<div class="stat-strip">
+  <div class="stat"><b>5</b><span>Designers</span></div>
+  <div class="stat"><b>7</b><span>Signature Services</span></div>
+  <div class="stat"><b>02-359-6844</b><span>Call to Book</span></div>
+  <div class="stat"><b>10–20</b><span>Open Daily</span></div>
+</div>
+
+<!-- ===== DESIGNERS ===== -->
+<section id="designers">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div class="sec-head">
+        <span class="eyebrow">Designer</span>
+        <h2>보그헤어 응암역점을<br>이끄는 사람들</h2>
+      </div>
+      <span class="eyebrow" style="margin:0;">Scroll →</span>
+    </div>
+  </div>
+  <div class="designer-scroll" id="designerScroll"></div>
+</section>
+
+<!-- ===== SERVICE ===== -->
+<section id="service" style="background:var(--off);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Service</span>
+      <h2>대표 시술</h2>
+      <p>항목을 클릭하면 우측 이미지가 바뀝니다.</p>
+    </div>
+    <div class="service-layout">
+      <div id="serviceList"></div>
+      <div class="service-preview reveal"><img id="servicePreviewImg" src="images/styles/레이어드컷.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Price</span>
+      <h2>가격 안내</h2>
+      <p>모발 길이·상태 및 디자이너 지정에 따라 가격이 달라질 수 있습니다.</p>
+    </div>
+    <div class="price-tabs reveal" id="priceTabs"></div>
+    <div id="pricePanels" class="reveal"></div>
+    <p class="price-note">기장에 따라 추가 요금이 발생할 수 있습니다.</p>
+  </div>
+</section>
+
+<!-- ===== GALLERY (FILMSTRIP) ===== -->
+<section id="gallery" style="background:var(--off);">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div class="sec-head">
+        <span class="eyebrow">Gallery</span>
+        <h2>Studio Journal</h2>
+      </div>
+      <span class="eyebrow" style="margin:0;">Scroll →</span>
+    </div>
+  </div>
+  <div class="film-scroll" id="filmScroll"></div>
+</section>
+
+<!-- ===== REVIEW (MARQUEE) ===== -->
+<section id="reviews" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Review</span>
+      <h2>다녀가신 분들의 이야기</h2>
+    </div>
+  </div>
+  <div class="review-marquee">
+    <div class="review-track" id="reviewTrack"></div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section id="location" style="padding:0;">
+  <div class="loc-wrap">
+    <div class="loc-map">
+      <iframe src="https://www.google.com/maps?q=%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%9D%80%ED%8F%89%EB%A1%9C%2094&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="보그헤어 응암역점 지도"></iframe>
+    </div>
+    <div class="loc-panel">
+      <span class="eyebrow">Location</span>
+      <h3>보그헤어 응암역점</h3>
+      <div class="row"><strong>주소</strong><span>서울특별시 은평구 은평로 94 2층</span></div>
+      <!-- ⚠️ TODO: 응암역 출구 번호/도보 거리 확인 후 채우기 -->
+      <div class="row"><strong>오시는 길</strong><span>응암역 인근</span></div>
+      <div class="row"><strong>전화</strong><span>02-359-6844</span></div>
+      <div class="row"><strong>운영시간</strong><span>매일 10:00 – 20:00</span></div>
+      <div class="row"><strong>주차</strong><span>매장 앞 2대 (만차 시 인근 이마트 주차 추천)</span></div>
+      <div class="loc-btns">
+        <a class="btn on-dark" href="https://map.naver.com/p/entry/place/1931497287" target="_blank" rel="noopener" data-ga-event="directions_click" data-map="naver">네이버지도</a>
+        <a class="btn on-dark outline" href="https://www.google.com/maps/search/?api=1&query=서울+은평구+은평로+94" target="_blank" rel="noopener" data-ga-event="directions_click" data-map="google">구글지도</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ===== RESERVATION ===== -->
+<section class="reservation">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="text-align:center;">Reservation</span>
+    <h2>지금, 예약하세요</h2>
+    <p>네이버예약으로 원하는 날짜와 디자이너를 직접 선택할 수 있습니다.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn on-dark" href="#" id="reserveFinalBtn" data-ga-event="reserve_click" data-location="final_cta" target="_blank" rel="noopener">네이버예약하기</a>
+      <a class="btn on-dark outline" href="tel:02-359-6844" data-ga-event="call_click" data-location="final_cta">02-359-6844</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">VOG HAIR 응암역점</div>
+        <p style="font-size:12.5px; max-width:32ch; line-height:1.9;">서울특별시 은평구 은평로 94 2층<br>1979년 파리에서 시작된 프리미엄 헤어살롱</p>
+      </div>
+      <div>
+        <div class="col-title">Contact</div>
+        <ul>
+          <li><a href="tel:02-359-6844">02-359-6844</a></li>
+          <li><a href="https://blog.naver.com/jdsh42" target="_blank" rel="noopener">네이버 블로그</a></li>
+          <li><a href="https://www.instagram.com/voghair_6844" target="_blank" rel="noopener">인스타그램</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-title">Menu</div>
+        <ul>
+          <li><a href="#designers">디자이너</a></li>
+          <li><a href="#price">가격</a></li>
+          <li><a href="#reviews">후기</a></li>
+          <li><a href="#location">오시는 길</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-title">Hours</div>
+        <ul>
+          <li>매일 10:00 – 20:00</li>
+          <li>매장 앞 주차 2대</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VOG HAIR · 보그헤어 응암역점. All rights reserved.</span>
+      <span>사업자정보 ⚠️ 확인 후 기재 필요</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CONFIG = {
+  telHref: "tel:02-359-6844",
+  instagram: "https://www.instagram.com/voghair_6844",
+  naverPlaceUrl: "https://map.naver.com/p/entry/place/1931497287",
+  defaultReserveUrl: "https://map.naver.com/p/entry/place/1931497287?c=15.00,0,0,3,dh&placePath=%2Fstylist%3Ffrom%3Dmap%26fromPanelNum%3D1%26additionalHeight%3D76%26timestamp%3D202608031453%26locale%3Dko%26svcName%3Dmap_pcv5%26entry%3Dbmp",
+};
+function resolveReserveHref(url){ return (url && url.length) ? url : (CONFIG.defaultReserveUrl || CONFIG.naverPlaceUrl || CONFIG.telHref); }
+function initials(name){ return name.trim().slice(0,1); }
+
+const DESIGNERS = [
+  { name:"써니 대표원장", title:"대표원장", specialty:"전문 시술 분야 ⚠️ 확인 후 입력", reserveUrl:"", instagram:CONFIG.instagram, photo:"images/designers/써니.jpg" },
+  { name:"베키 부원장", title:"부원장", specialty:"전문 시술 분야 ⚠️ 확인 후 입력", reserveUrl:"", instagram:CONFIG.instagram, photo:"images/designers/베키.jpg" },
+  { name:"솔 디자이너", title:"디자이너", specialty:"전문 시술 분야 ⚠️ 확인 후 입력", reserveUrl:"", instagram:CONFIG.instagram, photo:"images/designers/솔.jpg" },
+  { name:"주이 디자이너", title:"디자이너", specialty:"전문 시술 분야 ⚠️ 확인 후 입력", reserveUrl:"", instagram:CONFIG.instagram, photo:"images/designers/주이.jpg" },
+  { name:"은진 디자이너", title:"디자이너", specialty:"전문 시술 분야 ⚠️ 확인 후 입력", reserveUrl:"", instagram:CONFIG.instagram, photo:"images/designers/은진.jpg" },
+];
+
+const SERVICES = [
+  { name:"레이어드컷", photo:"images/styles/레이어드컷.jpg", desc:"층을 내어 가볍고 자연스러운 움직임을 살리는 커트입니다." },
+  { name:"레이어드펌", photo:"images/styles/레이어드펌.jpg", desc:"레이어드컷 위에 웨이브를 더해 볼륨과 살랑거림을 동시에 잡아줍니다." },
+  { name:"C컬펌", photo:"images/styles/C컬펌.jpg", desc:"끝만 안으로 말아주는 은은한 C컬로 단정한 인상을 줍니다." },
+  { name:"볼륨매직", photo:"images/styles/볼륨매직.jpg", desc:"뿌리 볼륨과 곱슬기를 정리해 매끈하게 펴주는 시술입니다." },
+  { name:"염색", photo:"images/styles/염색.jpg", desc:"원하는 컬러 톤에 맞춰 모발 상태를 진단한 후 진행합니다." },
+  { name:"탈색", photo:"images/styles/탈색.jpg", desc:"밝은 컬러 표현을 위한 사전 작업으로, 단계별로 진행합니다." },
+  { name:"클리닉", photo:"images/styles/클리닉.jpg", desc:"손상된 모발에 영양과 수분을 채워 회복시켜 줍니다." },
+];
+
+const PRICE_TAB_LABELS = { CUT:"CUT", DRY:"DRY", COLOR:"COLOR", PERM:"PERM", HEATPERM:"HEAT PERM", CLINIC:"CLINIC" };
+const PRICES = {
+  CUT: { items: [
+    { name:"학생컷 (디자이너)", price:"18,000원" },
+    { name:"학생컷 (원장·부원장)", price:"20,000원" },
+    { name:"남성컷 (디자이너)", price:"21,000원", featured:true },
+    { name:"남성컷 (원장·부원장)", price:"23,000원" },
+    { name:"여성컷 (디자이너)", price:"23,000원", featured:true },
+    { name:"여성컷 (원장·부원장)", price:"26,000원" },
+    { name:"컷+다운펌 (디자이너)", price:"51,000원" },
+    { name:"컷+다운펌 (원장·부원장)", price:"53,000원" },
+    { name:"헤드스파컷 (디자이너)", price:"43,000원" },
+    { name:"헤드스파컷 (원장·부원장)", price:"45,000원" },
+  ]},
+  DRY: { items: [
+    { name:"샴푸", price:"15,000원" },
+    { name:"붙임머리·탈색 샴푸", price:"25,000원" },
+    { name:"드라이", price:"25,000원", featured:true },
+    { name:"붙임머리 드라이", price:"35,000원" },
+  ]},
+  COLOR: { items: [
+    { name:"전체염색", price:"100,000원", featured:true },
+    { name:"뿌리염색", price:"55,000원" },
+    { name:"아윤채 뿌리염색", price:"65,000원" },
+    { name:"아윤채 전체염색", price:"120,000원" },
+    { name:"뿌리탈색", price:"80,000원" },
+    { name:"전체탈색", price:"120,000원" },
+    { name:"엘로이", price:"120,000원" },
+  ]},
+  PERM: { items: [
+    { name:"콜드펌(롯드펌)", price:"100,000원", featured:true },
+    { name:"특수펌", price:"120,000원" },
+    { name:"코어펌", price:"140,000원" },
+    { name:"앞머리펌", price:"30,000원" },
+    { name:"앞머리매직", price:"40,000원" },
+    { name:"부분펌", price:"50,000원" },
+    { name:"뿌리펌", price:"50,000원" },
+    { name:"다운펌", price:"30,000원" },
+  ]},
+  HEATPERM: { items: [
+    { name:"셋팅·디지털", price:"160,000원", featured:true },
+    { name:"볼륨매직", price:"180,000원", featured:true },
+    { name:"매직셋팅", price:"200,000원" },
+    { name:"아윤채 셋팅·디지털", price:"180,000원" },
+    { name:"아윤채 볼륨매직", price:"200,000원" },
+    { name:"아윤채 매직·셋팅", price:"220,000원" },
+  ]},
+  CLINIC: { items: [
+    { name:"밀본 클리닉 [3단계]", price:"70,000원" },
+    { name:"아윤채 클리닉 [5단계]", price:"100,000원" },
+    { name:"아윤채 두피클리닉", price:"70,000원" },
+  ]},
+};
+
+// ⚠️ TODO: 오픈 전 실제 응암역점 고객 후기로 교체해주세요 (임시 예시 문구)
+const REVIEWS = [
+  { text:"상담을 꼼꼼히 해주셔서 원하는 스타일 그대로 나왔어요.", name:"김**", source:"네이버 리뷰" },
+  { text:"염색 손상 걱정했는데 클리닉까지 같이 해주셔서 모발 상태가 좋아졌어요.", name:"이**", source:"구글 리뷰" },
+  { text:"써니 원장님이 직접 상담해주시고 편안한 분위기라 자주 방문하게 돼요.", name:"박**", source:"네이버 리뷰" },
+  { text:"솔 디자이너님께 레이어드컷 받았는데 만족스러웠어요.", name:"최**", source:"네이버 리뷰" },
+  { text:"볼륨매직 시술받았는데 손상 없이 자연스럽게 잘 나왔어요.", name:"정**", source:"구글 리뷰" },
+  { text:"베키 부원장님이 컬러 추천을 잘해주셨어요.", name:"한**", source:"네이버 리뷰" },
+];
+
+const FAQ = [
+  { q:"예약은 어떻게 하나요?", a:"보그헤어 응암역점은 네이버 예약을 통해 원하는 날짜와 시간, 디자이너를 직접 선택하여 편리하게 예약하실 수 있습니다." },
+  { q:"첫 방문인데 상담만 받아도 되나요?", a:"물론 가능합니다. 현재 모발 상태와 원하는 스타일을 충분히 상담한 후 시술을 진행합니다." },
+  { q:"가격은 어떻게 되나요?", a:"시술 가격은 네이버 플레이스에서 확인하실 수 있으며, 추가 비용이 있는 경우 사전에 안내드립니다." },
+  { q:"어떤 디자이너를 선택해야 하나요?", a:"디자이너마다 전문 분야가 달라 원하는 시술에 맞춰 선택하시면 더 만족스러운 결과를 얻으실 수 있습니다." },
+  { q:"주차는 가능한가요?", a:"네, 매장 앞에 2대까지 주차가 가능합니다. 자리가 없을 경우 인근 이마트 주차장 이용을 추천드립니다." },
+  { q:"시술 시간은 얼마나 걸리나요?", a:"시술 종류와 모발 상태에 따라 다르지만, 충분한 상담을 위해 여유 있는 시간을 권장드립니다." },
+];
+
+function renderDesignerScroll(){
+  document.getElementById('designerScroll').innerHTML = DESIGNERS.map(d => `
+    <div class="designer-card">
+      <div class="d-photo"><img src="${d.photo}" alt="${d.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;d-fallback&quot;>${initials(d.name)}<br>Photo Coming Soon</div>';"></div>
+      <div class="d-overlay">
+        <div class="designer-name">${d.name}</div>
+        <div class="designer-title">${d.title}</div>
+        <div class="designer-actions">
+          <a href="${d.instagram}" target="_blank" rel="noopener" data-ga-event="instagram_click" data-designer="${d.name}">Instagram</a>
+          <a href="${resolveReserveHref(d.reserveUrl)}" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="designer" data-designer="${d.name}">Reserve</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+function renderServiceList(){
+  const list = document.getElementById('serviceList');
+  list.innerHTML = SERVICES.map((s,i) => `
+    <div class="service-list-row ${i===0?'active':''}" data-photo="${s.photo}">
+      <span class="s-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="s-name">${s.name}</span>
+      <span class="s-desc">${s.desc}</span>
+    </div>
+  `).join('');
+  const preview = document.getElementById('servicePreviewImg');
+  list.querySelectorAll('.service-list-row').forEach(row => {
+    row.addEventListener('mouseenter', () => {
+      list.querySelectorAll('.service-list-row').forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+      preview.style.opacity = 0;
+      setTimeout(() => { preview.src = row.dataset.photo; preview.style.opacity = 1; }, 150);
+    });
+  });
+}
+function renderPricing(){
+  const tabsEl = document.getElementById('priceTabs');
+  const panelsEl = document.getElementById('pricePanels');
+  const keys = Object.keys(PRICES);
+  tabsEl.innerHTML = keys.map((k,i) => `<div class="price-tab ${i===0?'active':''}" data-tab="${k}">${PRICE_TAB_LABELS[k] || k}</div>`).join('');
+  panelsEl.innerHTML = keys.map((k,i) => `
+    <div class="price-panel ${i===0?'active':''}" data-panel="${k}">
+      ${PRICES[k].items.map(row => `
+        <div class="price-row">
+          <div class="p-name">${row.name}${row.featured ? '<span class="badge">대표</span>' : ''}</div>
+          <div class="p-val">${row.price}</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+  tabsEl.addEventListener('click', (e) => {
+    const tab = e.target.closest('.price-tab');
+    if(!tab) return;
+    tabsEl.querySelectorAll('.price-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    panelsEl.querySelectorAll('.price-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === tab.dataset.tab));
+  });
+}
+function renderFilmstrip(){
+  document.getElementById('filmScroll').innerHTML = SERVICES.map(s => `
+    <div class="film-item"><img src="${s.photo}" alt="${s.name}" loading="lazy"><span class="f-cap">${s.name}</span></div>
+  `).join('');
+}
+function renderReviewMarquee(){
+  const items = REVIEWS.map(r => `
+    <div class="review-item">
+      <div class="r-text">"${r.text}"</div>
+      <div class="r-meta">${r.name} · ${r.source}</div>
+    </div>
+  `).join('');
+  document.getElementById('reviewTrack').innerHTML = items + items;
+}
+function renderFaq(){
+  const list = document.getElementById('faqList');
+  list.innerHTML = FAQ.map((f,i) => `
+    <div class="faq-item" data-idx="${i}">
+      <div class="faq-q"><span class="q-idx">${String(i+1).padStart(2,'0')}</span><span class="q-text">${f.q}</span><span class="plus">+</span></div>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+  list.addEventListener('click', (e) => {
+    const q = e.target.closest('.faq-q');
+    if(!q) return;
+    const item = q.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const opening = !item.classList.contains('open');
+    list.querySelectorAll('.faq-item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-a').style.maxHeight = null; });
+    if(opening){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+}
+function bindReserveButtons(){
+  const href = resolveReserveHref(CONFIG.defaultReserveUrl);
+  ['reserveMobileBtn','reserveHeroBtn','reserveFinalBtn'].forEach(id => { const el = document.getElementById(id); if(el) el.href = href; });
+}
+function initReveal(){
+  const els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.14 });
+    els.forEach(el => io.observe(el));
+  } else { els.forEach(el => el.classList.add('in')); }
+}
+function trackEvent(name, params){
+  if(typeof window.gtag === 'function'){ window.gtag('event', name, params); } else { console.log('[GA4 event]', name, params); }
+}
+function initEventBinding(){
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-ga-event]');
+    if(!el) return;
+    const name = el.getAttribute('data-ga-event');
+    const params = {};
+    Array.from(el.attributes).forEach(attr => { if(attr.name.startsWith('data-') && attr.name !== 'data-ga-event'){ params[attr.name.replace('data-','').replace(/-/g,'_')] = attr.value; } });
+    trackEvent(name, params);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderDesignerScroll();
+  renderServiceList();
+  renderPricing();
+  renderFilmstrip();
+  renderReviewMarquee();
+  renderFaq();
+  bindReserveButtons();
+  initReveal();
+  initEventBinding();
+});
+</script>
+
+</body>
+</html>
