@@ -1,0 +1,445 @@
+/* =========================================================
+   DESIGN SPEC TOKENS — design-spec-sosaeul.md §1~§3
+   출처: design-spec-sosaeul.md. 값/변수명 임의 변경 금지.
+   ⚠️ 아직 어떤 셀렉터에도 적용되지 않은 "선언만" 상태입니다.
+   기존 레거시 :root(아래, --ivory 등)는 섹션을 새로 지을 때까지
+   기존 마크업이 계속 참조하므로 남겨둡니다.
+========================================================= */
+
+/* ---- §1 Color Tokens ---- */
+:root {
+  /* Surface */
+  --c-hero-veil:   #B9A996;  /* 히어로 사진 위 웜 토프 베일 */
+  --c-cream:       #F2EDE7;  /* 교차 밴드 (짝수 섹션) */
+  --c-white:       #FFFFFF;  /* 교차 밴드 (홀수 섹션) */
+  --c-bg:          #FBF9F6;  /* 페이지 기본 */
+
+  /* Accent */
+  --c-accent:      #C58A5C;  /* 테라코타 — 솔리드 버튼, 이탤릭 강조, 체크마크 */
+  --c-accent-deep: #A9703F;  /* hover */
+
+  /* Line */
+  --c-border:      #D8CFC5;
+  --c-rule:        #C4B8AB;  /* 제목 밑 얇은 밑줄 */
+
+  /* Text */
+  --c-text:        #3D342C;  /* 제목 */
+  --c-text-body:   #7A6E63;  /* 본문 */
+  --c-numeral:     #A89684;  /* 대형 숫자 — 흐리게 */
+  --c-on-hero:     #FFFFFF;
+}
+
+/* ---- §2 Typography Scale (데스크톱 1024px+ 기준) ---- */
+:root {
+  --fs-hero:     88px;  /* 히어로 제목 — 2줄 전제 */
+  --fs-hero-sub: 11px;  /* 히어로 부제, 대문자 */
+  --fs-section:  40px;  /* SERVICES 등 섹션 타이틀, 대문자 */
+  --fs-lead:     34px;  /* 스테이트먼트 헤드라인 */
+  --fs-numeral:  72px;  /* 1. 2. 3. */
+  --fs-h3:       26px;  /* 항목 제목 */
+  --fs-eyebrow:  10px;  /* 대문자 아이브로우 */
+  --fs-body:     13px;
+  --fs-check:    11px;
+  --fs-btn:      10px;
+
+  --ls-hero:     0.01em;
+  --ls-section:  0.08em;
+  --ls-eyebrow:  0.20em;  /* 아이브로우는 자간을 아주 넓게 */
+  --ls-btn:      0.10em;
+
+  --lh-hero:     1.05;
+  --lh-lead:     1.35;
+  --lh-body:     1.75;
+}
+
+/* ---- §3 Layout ---- */
+:root {
+  --container:   1120px;
+  --pad-x-lg:    64px;
+  --pad-x-md:    40px;
+  --pad-x-sm:    20px;
+  --sec-y-lg:    104px;
+  --sec-y-sm:    56px;
+
+  /* Measure — 가로 "위치"(.container)와 별개인, 텍스트 블록의 읽기 좋은 줄 길이 */
+  --measure-lead: 620px;  /* 대형 헤드라인 */
+  --measure-body: 560px;  /* 본문 문단 */
+}
+
+/* ---- Typeface roles (spec §2 표 + 1-1 폰트 교체 반영) ---- */
+:root {
+  --ff-display:    'Playfair Display', serif;         /* 하이컨트라스트 세리프 (라틴) */
+  --ff-display-ko: 'Gowun Batang', serif;              /* 한글 Display */
+  --ff-body:       'Inter', sans-serif;                /* 라이트 산세리프 (라틴 UI/본문) */
+}
+
+/* =========================================================
+   LEGACY TOKENS — 이전 소새울역점 디자인의 :root
+   spec §0 "이전 스펙을 참조하지 마세요" 대상. 새 디자인에서는
+   사용 금지. 섹션을 전부 새로 지을 때까지만 기존 마크업이
+   참조하므로 임시로 남겨두고, 섹션 재구축이 끝나면 삭제합니다.
+========================================================= */
+  :root{
+    --ivory:#F8F6F2;
+    --sand:#EFEAE2;
+    --charcoal:#1B1917;
+    --stone:#8A8378;
+    --brass:#B08876;
+    --brass-deep:#8C6353;
+    --brass-light:#D2AC97;
+    --line:rgba(27,25,23,0.12);
+    --footer-dark:#151311;
+  }
+
+/* =========================================================
+   .container — spec §3
+   ⚠️ 선언만. 아직 어떤 요소에도 적용하지 않음.
+   패딩은 §6 반응형 표 기준: ~767px=--pad-x-sm, 768–1023px=--pad-x-md, 1024px~=--pad-x-lg
+========================================================= */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--pad-x-sm);
+}
+@media (min-width: 768px) {
+  .container { max-width: 720px; padding-inline: var(--pad-x-md); }
+}
+@media (min-width: 1024px) {
+  .container { max-width: var(--container); padding-inline: var(--pad-x-lg); }
+}
+
+/* =========================================================
+   .measure-lead / .measure-body — 폭 제어 유틸리티 (§3 Layout)
+   .container = 가로 "위치"(정렬 기준) / measure = 텍스트 블록의 읽기 "길이".
+   서로 다른 개념이며, 폭 제어는 이 세 클래스(.container/.measure-lead/
+   .measure-body)로만 합니다. 개별 선택자에 max-width 숫자를 직접 넣지 않습니다.
+========================================================= */
+.measure-lead {
+  max-width: var(--measure-lead);
+  margin-inline: auto;
+}
+.measure-body {
+  max-width: var(--measure-body);
+  margin-inline: auto;
+}
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory); color:var(--charcoal);
+    font-family:'PretendardVariable','Pretendard',-apple-system,sans-serif;
+    font-weight:400; line-height:1.7; -webkit-font-smoothing:antialiased;
+    font-size:15px; padding-bottom:64px; /* space for mobile bottom bar */
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  h1,h2,h3{font-family:'Noto Serif KR', serif; font-weight:700; letter-spacing:-0.01em; color:var(--charcoal); word-break:keep-all;}
+  .eyebrow{
+    font-family:inherit; font-weight:600; font-size:11.5px;
+    letter-spacing:0.22em; text-transform:uppercase; color:var(--stone);
+    display:block; margin-bottom:16px;
+  }
+  section{padding:104px 0;}
+  @media(max-width:760px){ section{padding:64px 0;} }
+
+  /* ---------- SITE HEADER — design-spec-sosaeul.md §4.1 "상단 바" ----------
+     ⚠️ 아래 표시된 값들은 spec에 수치가 없어 임시로 넣은 값입니다(2단계 확인 필요):
+     padding-block 24px / brand font-size 15px / nav gap 28px.
+     brand letter-spacing는 spec의 "자간 넓게" 서술을 --ls-section(0.08em) 토큰에 매핑한 것입니다. */
+  .site-header{position:fixed; top:0; left:0; right:0; z-index:50; border-bottom:1px solid transparent; transition:background .3s ease, border-color .3s ease;}
+  .site-header.scrolled{background:var(--c-white); border-bottom-color:var(--c-border);}
+  .site-header-inner{display:flex; align-items:center; justify-content:space-between; padding-block:24px;}
+  .site-header-brand{font-family:var(--ff-display); font-size:15px; letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-on-hero);}
+  .site-header.scrolled .site-header-brand{color:var(--c-text);}
+  .site-header-nav{display:flex; gap:28px;}
+  .site-header-nav a{font-family:var(--ff-body); font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-on-hero);}
+  .site-header.scrolled .site-header-nav a{color:var(--c-text-body);}
+
+  /* ---------- MOBILE BOTTOM BAR ---------- */
+  .mobile-bar{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none;
+    background:rgba(247,243,236,0.97); backdrop-filter:blur(8px); border-top:1px solid var(--line);
+    box-shadow:0 -6px 20px rgba(43,38,32,.06);}
+  .mobile-bar-grid{display:grid; grid-template-columns:1fr 1fr 1fr 1.3fr;}
+  .mobile-bar a{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:10px 4px; font-size:11px; color:var(--charcoal); font-weight:500;}
+  .mobile-bar a svg{width:20px; height:20px; stroke:var(--stone);}
+  .mobile-bar a.reserve{background:var(--brass); color:#fff;}
+  .mobile-bar a.reserve svg{stroke:#fff;}
+  @media(max-width:760px){ .mobile-bar{display:block;} }
+
+  /* ---------- BUTTON — spec §4.3, §6(품질 기준: 모바일 터치 타깃 44px, 버튼 2개는 가로+각 50%) ---------- */
+  .btn{height:36px; padding:0 20px; border-radius:2px; font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; display:inline-flex; align-items:center; justify-content:center; font-family:var(--ff-body); text-decoration:none;}
+  @media (max-width:767px){ .btn{height:44px;} }
+  .btn--outline{border:1px solid var(--c-accent); background:transparent; color:var(--c-accent);}
+  .btn--solid{border:1px solid var(--c-accent); background:var(--c-accent); color:#fff;}
+  .btn-group{display:flex; gap:10px;}
+  @media (max-width:767px){ .btn-group .btn, .loc-btns .btn{flex:1;} }
+  .btn--hero{border-radius:999px; border-color:var(--c-on-hero); color:var(--c-on-hero);} /* 히어로 버튼 예외: spec §4.3, §7 */
+
+  /* ---------- HERO — spec §4.1 ----------
+     ⚠️ object-position 20%, hero-subtitle margin-top 20px, .btn margin-top 36px:
+     spec에 정확한 수치가 없어 정성적 서술("약간 위" 등)을 임시 수치로 옮긴 값입니다. */
+  .hero{position:relative; min-height:78vh; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  @media (min-width:768px){ .hero{min-height:85vh;} }
+  @media (min-width:1024px){ .hero{min-height:92vh;} }
+  .hero-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%;}
+  .hero-veil{position:absolute; inset:0; background:var(--c-hero-veil); opacity:.55;}
+  .hero-center{position:relative; z-index:1; text-align:center;}
+  .hero-title{font-family:var(--ff-display-ko); font-weight:400; font-size:40px; line-height:var(--lh-hero); letter-spacing:var(--ls-hero); color:var(--c-on-hero);}
+  @media (min-width:768px){ .hero-title{font-size:60px;} }
+  @media (min-width:1024px){ .hero-title{font-size:var(--fs-hero);} }
+  .hero-subtitle{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-hero-sub); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-on-hero); margin-top:20px;}
+  .hero-center .btn{margin-top:36px;}
+
+  /* ---------- TEXT ACCENT — spec §2 규칙 + §7(한글 이탤릭 금지) ---------- */
+  .accent{font-style:italic; color:var(--c-accent);} /* 라틴 전용 */
+  .accent-ko{font-style:normal; color:var(--c-accent);} /* 한글 전용 — 이탤릭 금지 */
+
+  /* ---------- STATEMENT — spec §2(스테이트먼트 헤드라인), §5 ----------
+     ⚠️ 배경색 --c-white: spec에 Statement 전용 배경 지정 없음, 1번(디자이너1) 크림 밴드로
+     이어지는 흐름을 고려해 화이트로 판단(확인 필요). 폭은 .container 그대로 사용 —
+     레이아웃 규칙상 개별 요소에 별도 max-width를 주지 않음. */
+  .statement{background:var(--c-white); padding-block:var(--sec-y-lg);}
+  .statement-lead{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-lead); line-height:var(--lh-lead); color:var(--c-text); text-align:center;}
+
+  /* ---------- SECTION HEAD ---------- */
+  .sec-head{text-align:center; max-width:640px; margin:0 auto 52px;}
+  .sec-head h2{font-size:clamp(26px,3.8vw,38px); padding-bottom:20px; position:relative; margin-bottom:18px; text-wrap:balance;}
+  .sec-head h2::after{content:""; position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:44px; height:1.5px; background:var(--brass);}
+  .sec-head p{color:var(--stone); font-size:14.5px;}
+
+  /* ---------- BRAND STORY ---------- */
+  .story-wrap{max-width:680px; margin:0 auto; text-align:center;}
+  .story-wrap .eyebrow{text-align:center;}
+  .story-wrap h2{font-size:clamp(22px,3vw,30px); margin-bottom:22px;}
+  .story-text{color:var(--stone); font-size:14px; line-height:1.9; text-align:left;}
+  @media(max-width:600px){ .story-text br{display:none;} }
+
+  /* ---------- SECTION HEAD (라틴 타이틀 + 한글 부제) — spec §2 ----------
+     ⚠️ section-head-block padding, subtitle margin-top: spec에 값 없음, 임시값 */
+  .section-head-block{padding-block:var(--sec-y-lg); background:var(--c-white);}
+  .section-title{font-family:var(--ff-display); font-weight:400; font-size:var(--fs-section); letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-text); text-align:center;}
+  .section-subtitle{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); text-align:center; margin-top:12px;}
+
+  /* ---------- DESIGNERS — spec §3(지그재그+배경 밴드), §4.2, §4.4, §4.5 ----------
+     ⚠️ designer-band padding, heading-row gap, rule 폭 65%(60~70% 범위 내 임의 선택),
+     이미지 오프셋 프레임 방향(우하단 8px): spec 서술을 구체 수치로 옮긴 임시값. */
+  .designer-band{padding-block:var(--sec-y-lg);}
+  .designer-band.odd{background:var(--c-cream);}
+  .designer-band.even{background:var(--c-white);}
+
+  /* 지그재그는 1024px+ 전용 — spec §6 "1024px~: 좌우 교차" */
+  @media (min-width: 1024px) {
+    .designer-row{display:grid; grid-template-columns:46% 42%; column-gap:12%; align-items:center;}
+    .designer-band.even .designer-row{grid-template-columns:42% 46%;}
+    .designer-band.odd .designer-media{order:2;}
+    .designer-band.odd .designer-copy{order:1;}
+    .designer-band.even .designer-media{order:1;}
+    .designer-band.even .designer-copy{order:2;}
+  }
+  /* ~1023px: 전부 1열 스택, 좌우 교차 없이 모든 항목 동일 순서 — spec §6
+     스택 순서: 숫자+제목 → 이미지 → 본문 → 버튼 */
+  @media (max-width: 1023px) {
+    .designer-row{display:flex; flex-direction:column; gap:24px;}
+    .designer-copy{display:contents;}
+    .designer-heading-row{order:1;}
+    .designer-media{order:2;}
+    .designer-summary{order:3;}
+    .checklist{order:3;}
+    .designer-copy .btn{order:4;}
+  }
+
+  .designer-media{position:relative;}
+  .designer-media img{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:0; filter:saturate(.9);}
+  .designer-band.even .designer-media::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); z-index:0;}
+
+  /* ---------- 대형 숫자 — spec §4.2, §6(반응형 40/56/72px) ---------- */
+  .item-num{font-family:var(--ff-display); font-size:40px; color:var(--c-numeral); line-height:1;}
+  @media (min-width:768px){ .item-num{font-size:56px;} }
+  @media (min-width:1024px){ .item-num{font-size:var(--fs-numeral);} }
+
+  .designer-heading-row{display:flex; align-items:flex-start; gap:16px;}
+  .designer-heading h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); letter-spacing:normal;}
+  .designer-heading .rule{display:block; width:65%; height:1px; background:var(--c-rule); margin-top:10px;}
+  .designer-summary{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-text-body); text-align:left; margin-top:20px;}
+
+  .checklist{list-style:none; margin-top:20px;}
+  .checklist li{position:relative; padding-left:20px; font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); margin-bottom:6px;}
+  .checklist li::before{content:'✓'; position:absolute; left:0; color:var(--c-accent);}
+
+  .designer-copy .btn{margin-top:24px;}
+
+  /* ---------- GALLERY — spec §4.5(이미지), §7(linear-gradient 금지) ----------
+     ⚠️ .gallery padding, .style-grid gap 24px: spec에 갤러리 전용 수치 없음, 임시값. */
+  .gallery{padding-block:var(--sec-y-lg); background:var(--c-white);}
+  .style-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .style-card{cursor:pointer;}
+  .style-card .s-photo{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:0; filter:saturate(.9); transition:opacity .2s ease;}
+  .style-card:hover .s-photo{opacity:.85;}
+  .style-card .s-title{margin-top:12px; font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); text-align:center;}
+  @media(max-width:1023px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- STYLE DETAIL MODAL ---------- */
+  .style-modal{position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px;}
+  .style-modal.open{display:flex;}
+  .style-modal-overlay{position:absolute; inset:0; background:rgba(36,26,19,.55); backdrop-filter:blur(2px);}
+  .style-modal-box{position:relative; background:var(--ivory); max-width:640px; width:100%; max-height:88vh; overflow-y:auto; display:grid; grid-template-columns:1fr 1fr; box-shadow:0 30px 60px rgba(36,26,19,.3);}
+  .style-modal-photo{aspect-ratio:4/5; background-size:cover; background-position:center; background-color:var(--sand);}
+  .style-modal-body{padding:32px 28px; display:flex; flex-direction:column;}
+  .style-modal-body h3{font-size:22px; margin-bottom:10px;}
+  .style-modal-desc{color:var(--stone); font-size:13.5px; margin-bottom:20px;}
+  .style-modal-facts{list-style:none; margin-bottom:24px;}
+  .style-modal-facts li{padding:12px 0; border-bottom:1px solid var(--line); font-size:13.5px;}
+  .style-modal-facts li:last-child{border-bottom:none;}
+  .style-modal-facts strong{display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:4px;}
+  .style-modal-facts span{color:var(--charcoal); font-weight:500;}
+  .style-modal-close{position:absolute; top:14px; right:14px; z-index:2; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.85); border:1px solid var(--line); font-size:20px; line-height:1; color:var(--charcoal); cursor:pointer;}
+  .style-modal-close:hover{background:#fff;}
+  @media(max-width:640px){ .style-modal-box{grid-template-columns:1fr;} .style-modal-photo{aspect-ratio:16/9;} }
+
+  /* ---------- LEGACY BUTTONS (복원) ----------
+     ⚠️ 히어로 재구축 때 실수로 함께 삭제됐던 규칙. 스타일 모달(#styleModalReserve)과
+     Final CTA(아직 재구축 전, spec §5 목록에 없는 섹션)가 여전히 이 클래스를 씁니다.
+     그 섹션들 차례가 오면 .btn/.btn--solid로 교체하고 이 블록은 지웁니다. */
+  .btn-primary{
+    background:var(--charcoal); color:var(--ivory); padding:15px 32px;
+    font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;
+    transition:background .2s ease;
+  }
+  .btn-primary:hover{background:var(--brass-deep);}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,.5); color:var(--ivory); padding:14px 28px;
+    font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08);}
+
+  /* ---------- EVENT — spec §5((추가) 항목), §1(액센트는 솔리드 버튼에만) ----------
+     ⚠️ .event/.price padding-block, badge 높이, 여백들: spec에 전용 수치 없음, 임시값. */
+  .event{background:var(--c-cream); padding-block:var(--sec-y-lg);}
+  .event-panel{text-align:center;}
+  .event-badge{display:inline-block; height:28px; padding:0 14px; line-height:26px; border:1px solid var(--c-text); font-family:var(--ff-body); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--c-text); margin-bottom:20px;}
+  .event-panel h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); margin-bottom:16px;}
+  .event-desc{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); line-height:var(--lh-body); margin-bottom:8px;}
+  .event-panel .price-panel-note{margin-bottom:20px;}
+  .event-panel .btn{margin-top:8px;}
+
+  /* ---------- PRICE — spec §5((추가) 항목, 컨테이너 규칙 그대로) ---------- */
+  .price{background:var(--c-white); padding-block:var(--sec-y-lg);}
+  .price-tabs{display:flex; gap:8px; justify-content:center; margin-bottom:32px; flex-wrap:wrap;}
+  .price-tab{height:36px; padding:0 20px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-text-body); cursor:pointer; background:transparent;}
+  .price-tab.active{background:var(--c-text); border-color:var(--c-text); color:#fff;}
+  .price-panel{display:none;}
+  .price-panel.active{display:block;}
+  .price-group-title{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); padding:24px 0 8px;}
+  .price-row{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-badge{display:inline-block; margin-left:8px; padding:2px 8px; border:1px solid var(--c-rule); font-size:10px; letter-spacing:.03em; color:var(--c-text-body); vertical-align:middle;}
+  .price-row .p-val{font-family:var(--ff-display); color:var(--c-text); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .price-panel-note{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); padding:16px 0 8px; line-height:var(--lh-body);}
+  .price-tip{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); padding:14px 0; line-height:var(--lh-body); border-top:1px solid var(--c-border); margin-top:12px;}
+  .price-tip strong{color:var(--c-text); font-weight:600;}
+
+  /* ---------- REVIEWS — spec §5((추가) 항목), §1(액센트는 버튼에만 — 별점은 중립색) ---------- */
+  .reviews{background:var(--c-white); padding-block:var(--sec-y-lg);}
+  .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--c-border); margin-bottom:36px; border:1px solid var(--c-border);}
+  .review-card{background:#fff; padding:30px;}
+  .review-stars{color:var(--c-text); font-size:14px; margin-bottom:12px; letter-spacing:2px;}
+  .review-text{font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text); margin-bottom:16px; line-height:var(--lh-body);}
+  .review-meta{display:flex; justify-content:space-between; font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body);}
+  .review-links{display:flex; gap:24px; justify-content:center;}
+  .review-links a{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text); border-bottom:1px solid var(--c-border); padding-bottom:2px;}
+  @media(max-width:1023px){ .review-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .review-grid{grid-template-columns:1fr;} }
+
+  /* ---------- STORE INTRO — 레이아웃(오버랩 카드) 유지, 토큰만 교체 ----------
+     ⚠️ .store-intro padding-block, 오버랩 오프셋 8px 방향: spec에 전용 수치 없음, 임시값. */
+  .store-intro{background:var(--c-white); padding-block:var(--sec-y-lg);}
+  .store-overlap{position:relative; display:grid; grid-template-columns:1.15fr 1fr; align-items:center;}
+  .store-photo{position:relative; aspect-ratio:4/5; overflow:hidden;}
+  .store-photo::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); z-index:0;}
+  .store-photo img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover; border-radius:0; filter:saturate(.9); display:block;}
+  .store-card{position:relative; z-index:2; background:#fff; border:1px solid var(--c-border); margin-left:-84px; padding:48px 44px;}
+  .store-eyebrow{display:block; font-family:var(--ff-body); font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-text-body); margin-bottom:16px;}
+  .store-heading{display:flex; align-items:center; gap:18px; margin-bottom:16px;}
+  .store-heading h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); white-space:nowrap;}
+  .store-heading-rule{flex:1; height:1px; background:var(--c-rule);}
+  .store-desc{font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text-body); line-height:var(--lh-body); margin-bottom:8px;}
+  .store-facts{list-style:none; margin-top:22px;}
+  .store-facts li{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text-body);}
+  .store-facts li:last-child{border-bottom:none;}
+  .store-facts strong{min-width:64px; color:var(--c-text); font-weight:600; flex:none;}
+  @media(max-width:1023px){
+    .store-overlap{grid-template-columns:1fr;}
+    .store-card{margin-left:20px; margin-right:20px; margin-top:-56px; padding:32px 26px;}
+  }
+
+  /* ---------- LOCATION — spec §5((추가) 항목, 컨테이너 규칙 그대로) ----------
+     ⚠️ .location padding-block, loc-grid 비율/gap: spec에 전용 수치 없음, 임시값. */
+  .location{background:var(--c-cream); padding-block:var(--sec-y-lg);}
+  .loc-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:stretch;}
+  .loc-map{min-height:360px;}
+  .loc-map iframe{width:100%; height:100%; min-height:360px; border:0; display:block; filter:saturate(.9);}
+  .loc-info h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); margin-bottom:20px;}
+  .loc-info .row{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text-body);}
+  .loc-info .row:last-of-type{border-bottom:none;}
+  .loc-info .row strong{min-width:70px; color:var(--c-text); font-weight:600; flex:none;}
+  .loc-btns{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap;}
+  @media(max-width:1023px){ .loc-grid{grid-template-columns:1fr;} .loc-map iframe{min-height:280px;} }
+
+  /* ---------- FAQ — spec §5((추가) 항목) ---------- */
+  .faq{background:var(--c-cream); padding-block:var(--sec-y-lg);}
+  .faq-item{border-bottom:1px solid var(--c-border);}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:22px 0; cursor:pointer; font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); color:var(--c-text);}
+  .faq-q .plus{font-size:20px; color:var(--c-text); transition:transform .3s ease; font-weight:300; flex:none;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .faq-a p{padding:0 0 22px; font-family:var(--ff-body); color:var(--c-text-body); font-size:var(--fs-body); line-height:var(--lh-body);}
+
+  /* ---------- FINAL CTA — spec §7(linear-gradient 금지 → 단색), Statement와 동일 패턴 ---------- */
+  .final-cta{background:var(--c-text); color:var(--c-bg); text-align:center; padding-block:var(--sec-y-lg);}
+  .final-cta h2{color:var(--c-bg); font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-lead); line-height:var(--lh-lead);}
+  .final-cta .rule{width:40px; height:1px; background:var(--c-rule); margin:24px auto;}
+  .final-cta .btn-group{justify-content:center;}
+
+  /* ---------- FOOTER — spec §5((추가) 항목) ---------- */
+  footer{background:var(--c-text); color:rgba(248,246,242,.7); padding-block:var(--sec-y-lg); border-top:1px solid rgba(248,246,242,.08);}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px;}
+  .footer-brand{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-bg); margin-bottom:12px;}
+  .footer-desc{font-family:var(--ff-body); font-size:var(--fs-check); color:rgba(248,246,242,.55); line-height:var(--lh-body);}
+  footer .col-title{font-family:var(--ff-body); font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); color:rgba(248,246,242,.45); margin-bottom:14px; text-transform:uppercase;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:9px; font-family:var(--ff-body); font-size:var(--fs-body);}
+  footer a:hover{color:var(--c-accent);}
+  .footer-bottom{border-top:1px solid rgba(248,246,242,.1); padding-top:22px; font-family:var(--ff-body); font-size:var(--fs-check); color:rgba(248,246,242,.4); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  @media(max-width:760px){ .footer-grid{grid-template-columns:1fr; gap:28px;} }
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);}
+  .reveal.in{opacity:1; transform:none;}
+
+  .bg-sand{background:var(--sand); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+
+  /* =========================================================
+     RESPONSIVE — spec §6 (3단계)
+     섹션 상하 패딩: ~767px=--sec-y-sm(56px) / 768–1023px=76px(§6 표에 있는 값, 전용
+     토큰명은 없음) / 1024px~=--sec-y-lg(104px, 각 섹션 규칙에 이미 선언됨)
+  ========================================================= */
+  @media (max-width:767px) {
+    .statement, .section-head-block, .designer-band, .gallery, .event, .price,
+    .reviews, .store-intro, .location, .faq, .final-cta, footer {
+      padding-block: var(--sec-y-sm);
+    }
+  }
+  @media (min-width:768px) and (max-width:1023px) {
+    .statement, .section-head-block, .designer-band, .gallery, .event, .price,
+    .reviews, .store-intro, .location, .faq, .final-cta, footer {
+      padding-block: 76px;
+    }
+  }
+
+  /* ---------- MOBILE FINE-TUNING (레거시 섹션 전용, 3단계에서 재작업) ---------- */
+  @media(max-width:480px){
+    .price-row{flex-direction:column; align-items:flex-start; gap:4px;}
+    .price-row .p-val{font-size:15px;}
+  }

@@ -109,12 +109,31 @@
   --pad-x-sm:    20px;
   --sec-y-lg:    104px;
   --sec-y-sm:    56px;
+
+  /* Measure — .container(가로 "위치")와 별개인, 텍스트 블록의 읽기 좋은 줄 길이 */
+  --measure-lead: 620px;  /* 대형 헤드라인 */
+  --measure-body: 560px;  /* 본문 문단 */
 }
 ```
 
 - **`.container` 규칙 유지** (응암역점에서 확정한 것과 동일):
   모든 섹션 콘텐츠는 `.container`로 감싸고, 개별 요소에 `width` / `max-width` / `margin: auto`를 직접 지정하지 않습니다.
 - 히어로와 배경 밴드만 full-bleed. 내부 텍스트는 `.container` 기준.
+
+### Measure (읽기 폭)
+
+`.container`와 measure는 다른 개념입니다. **`.container`는 가로 "위치"**(섹션 내 정렬 기준, full-bleed 배경 안에서 콘텐츠가 어디 놓이는지)를 통일하는 것이고, **measure는 텍스트 블록의 읽기 좋은 줄 "길이"**를 잡는 것입니다. 헤드라인이나 본문을 `.container`(1120px) 폭 그대로 두면 줄이 너무 길어져 읽기 어려우므로, 별도 유틸리티 클래스로 좁힙니다.
+
+```css
+.measure-lead { max-width: var(--measure-lead); margin-inline: auto; }
+.measure-body { max-width: var(--measure-body); margin-inline: auto; }
+```
+
+- 헤드라인(스테이트먼트, 섹션 리드 카피 등) → `.measure-lead`
+- 본문 문단 → `.measure-body`
+- 아이브로우(라벨류)는 폭 제한 없이 중앙정렬만 유지
+
+**폭 제어는 `.container` / `.measure-lead` / `.measure-body` 이 세 클래스로만 합니다.** 개별 선택자에 `max-width` 숫자를 직접 넣는 것은 금지입니다(§7 금지 목록에도 반영). 이 세 토큰에 없는 새로운 폭 값이 필요하면 임의로 만들지 말고 질문하세요.
 
 ### 지그재그 그리드
 
@@ -248,4 +267,5 @@
 - 한글에 `font-style: italic` 적용
 - 모바일에서 지그재그 좌우 교차 유지
 - 토큰에 없는 색상·폰트사이즈·여백 임의 생성
+- 개별 선택자에 `max-width` 숫자를 직접 지정 (폭 제어는 `.container` / `.measure-lead` / `.measure-body` 세 클래스로만, §3 Measure 참고)
 - 이전 소새울역점 디자인 규칙 참조
