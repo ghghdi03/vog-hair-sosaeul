@@ -157,6 +157,7 @@
   .site-header-nav{display:flex; gap:28px;}
   .site-header-nav a{font-family:var(--ff-body); font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-on-hero);}
   .site-header.scrolled .site-header-nav a{color:var(--c-text-body);}
+  @media(max-width:900px){ .site-header-nav{display:none;} } /* 모바일 하단 바가 내비 역할을 대신함 */
 
   /* ---------- MOBILE BOTTOM BAR ---------- */
   .mobile-bar{position:fixed; left:0; right:0; bottom:0; z-index:60; display:none;
