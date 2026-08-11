@@ -492,17 +492,6 @@ const PRICES = {
     ]}],
     note: "기장에 따라 추가 요금이 발생할 수 있습니다 — 어깨아래 +20,000원 / 가슴아래 +40,000원",
   },
-  ETC: {
-    groups: [{ items: [
-      { name:"샴푸+지압패키지", price:"20,000원", featured:true },
-      { name:"[첫방문]드라이", price:"15,000원" },
-      { name:"샴푸", price:"10,000원" },
-      { name:"웨이브 드라이", price:"20,000원" },
-      { name:"여성 베이직 드라이", price:"18,000원" },
-      { name:"남성 베이직 드라이", price:"15,000원" },
-    ]}],
-    note: "가격정보는 시술별 기본가격을 기준으로 제공합니다.",
-  },
   CLINIC: {
     groups: [
       { name:"클리닉(모발)", items: [
@@ -629,7 +618,7 @@ function renderStore(){
   el.innerHTML = `<img src="${STORE_PHOTOS[0]}" alt="매장 사진" loading="lazy">`;
 }
 
-const PRICE_TAB_LABELS = { CUT:"CUT", PERM:"PERM", COLOR:"COLOR", ETC:"기타", CLINIC:"CLINIC" };
+const PRICE_TAB_LABELS = { CUT:"CUT", PERM:"PERM", COLOR:"COLOR", CLINIC:"CLINIC" };
 
 function renderPricing(){
   const tabsEl = document.getElementById('priceTabs');
