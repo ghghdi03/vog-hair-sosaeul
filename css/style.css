@@ -205,6 +205,12 @@
      레이아웃 규칙상 개별 요소에 별도 max-width를 주지 않음. */
   .statement{background:var(--c-white); padding-block:var(--sec-y-lg);}
   .statement-lead{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-lead); line-height:var(--lh-lead); color:var(--c-text); text-align:center;}
+  /* ⚠️ 모바일에서 <br>로 나눈 각 줄이 다시 줄바꿈되지 않도록 폰트 축소 — 임시값, 실측 후 조정 */
+  @media (max-width:480px){ .statement-lead{font-size:16px;} }
+  @media (min-width:481px) and (max-width:767px){ .statement-lead{font-size:22px;} }
+  /* 모바일 전용 강제 줄바꿈 — 데스크톱/태블릿은 기존처럼 자연 줄바꿈 유지 */
+  .statement-lead br.lb-mobile{display:none;}
+  @media (max-width:767px){ .statement-lead br.lb-mobile{display:inline;} }
 
   /* ---------- SECTION HEAD ---------- */
   .sec-head{text-align:center; max-width:640px; margin:0 auto 52px;}
