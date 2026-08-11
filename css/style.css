@@ -74,9 +74,9 @@
 
 /* ---- Typeface roles (spec §2 표 + 1-1 폰트 교체 반영) ---- */
 :root {
-  --ff-display:    'Playfair Display', serif;         /* 하이컨트라스트 세리프 (라틴) */
-  --ff-display-ko: 'Gowun Batang', serif;              /* 한글 Display */
-  --ff-body:       'Inter', sans-serif;                /* 라이트 산세리프 (라틴 UI/본문) */
+  --ff-display:    'Plus Jakarta Sans', sans-serif;    /* 영문 포인트 */
+  --ff-display-ko: 'Gowun Dodum', sans-serif;          /* 메인 제목(한글) */
+  --ff-body:       'Gowun Dodum', sans-serif;          /* 본문 */
 }
 
 /* =========================================================
@@ -159,10 +159,10 @@
   .site-header{position:fixed; top:0; left:0; right:0; z-index:50; border-bottom:1px solid transparent; transition:background .3s ease, border-color .3s ease;}
   .site-header.scrolled{background:var(--c-white); border-bottom-color:var(--c-border);}
   .site-header-inner{display:flex; align-items:center; justify-content:space-between; padding-block:24px;}
-  .site-header-brand{font-family:var(--ff-display); font-size:15px; letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-on-hero);}
+  .site-header-brand{font-family:var(--ff-display); font-weight:600; font-size:15px; letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-on-hero);}
   .site-header.scrolled .site-header-brand{color:var(--c-text);}
   .site-header-nav{display:flex; gap:28px;}
-  .site-header-nav a{font-family:var(--ff-body); font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-on-hero);}
+  .site-header-nav a{font-family:var(--ff-display); font-weight:600; font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-on-hero);}
   .site-header.scrolled .site-header-nav a{color:var(--c-text-body);}
   @media(max-width:900px){ .site-header-nav{display:none;} } /* 모바일 하단 바가 내비 역할을 대신함 */
 
@@ -198,7 +198,7 @@
   .hero-title{font-family:var(--ff-display-ko); font-weight:400; font-size:40px; line-height:var(--lh-hero); letter-spacing:var(--ls-hero); color:var(--c-on-hero);}
   @media (min-width:768px){ .hero-title{font-size:60px;} }
   @media (min-width:1024px){ .hero-title{font-size:var(--fs-hero);} }
-  .hero-subtitle{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-hero-sub); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-on-hero); margin-top:20px;}
+  .hero-subtitle{font-family:var(--ff-display); font-weight:600; font-size:var(--fs-hero-sub); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-on-hero); margin-top:20px;}
   .hero-center .btn{margin-top:36px;}
 
   /* ---------- TEXT ACCENT — spec §2 규칙 + §7(한글 이탤릭 금지) ---------- */
@@ -232,8 +232,8 @@
   /* ---------- SECTION HEAD (라틴 타이틀 + 한글 부제) — spec §2 ----------
      ⚠️ section-head-block padding, subtitle margin-top: spec에 값 없음, 임시값 */
   .section-head-block{padding-block:var(--sec-y-lg); background:var(--c-white);}
-  .section-title{font-family:var(--ff-display); font-weight:400; font-size:var(--fs-section); letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-text); text-align:center;}
-  .section-subtitle{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); text-align:center; margin-top:12px;}
+  .section-title{font-family:var(--ff-display); font-weight:600; font-size:var(--fs-section); letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-text); text-align:center;}
+  .section-subtitle{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); color:var(--c-text-body); text-align:center; margin-top:12px;}
 
   /* ---------- DESIGNERS — spec §3(지그재그+배경 밴드), §4.2, §4.4, §4.5 ----------
      ⚠️ designer-band padding, heading-row gap, rule 폭 65%(60~70% 범위 내 임의 선택),
@@ -268,14 +268,14 @@
   .designer-band.even .designer-media::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); border-radius:var(--radius-arch); z-index:0;}
 
   /* ---------- 대형 숫자 — spec §4.2, §6(반응형 40/56/72px) ---------- */
-  .item-num{font-family:var(--ff-display); font-size:40px; color:var(--c-numeral); line-height:1;}
+  .item-num{font-family:var(--ff-display); font-weight:600; font-size:40px; color:var(--c-numeral); line-height:1;}
   @media (min-width:768px){ .item-num{font-size:56px;} }
   @media (min-width:1024px){ .item-num{font-size:var(--fs-numeral);} }
 
   .designer-heading-row{display:flex; align-items:flex-start; gap:16px;}
   .designer-heading h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); letter-spacing:normal;}
   .designer-heading .rule{display:block; width:65%; height:1px; background:var(--c-rule); margin-top:10px;}
-  .designer-summary{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-text-body); text-align:left; margin-top:20px;}
+  .designer-summary{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-text-body); text-align:left; margin-top:20px;}
 
   .checklist{list-style:none; margin-top:20px;}
   .checklist li{position:relative; padding-left:20px; font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); margin-bottom:6px;}
@@ -296,7 +296,7 @@
   .style-card{cursor:pointer;}
   .style-card .s-photo{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-arch); filter:saturate(.9); transition:opacity .2s ease;}
   .style-card:hover .s-photo{opacity:.85;}
-  .style-card .s-title{margin-top:12px; font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); text-align:center;}
+  .style-card .s-title{margin-top:12px; font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); color:var(--c-text-body); text-align:center;}
   @media(max-width:1023px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
 
   /* ---------- STYLE DETAIL MODAL ---------- */
@@ -337,16 +337,16 @@
      ⚠️ .event/.price padding-block, badge 높이, 여백들: spec에 전용 수치 없음, 임시값. */
   .event{background:var(--c-cream); padding-block:var(--sec-y-lg);}
   .event-panel{text-align:center;}
-  .event-badge{display:inline-block; height:28px; padding:0 14px; line-height:26px; border:1px solid var(--c-text); font-family:var(--ff-body); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--c-text); margin-bottom:20px;}
+  .event-badge{display:inline-block; height:28px; padding:0 14px; line-height:26px; border:1px solid var(--c-text); font-family:var(--ff-display); font-weight:600; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--c-text); margin-bottom:20px;}
   .event-panel h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); margin-bottom:16px;}
-  .event-desc{font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); line-height:var(--lh-body); margin-bottom:8px;}
+  .event-desc{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); color:var(--c-text-body); line-height:var(--lh-body); margin-bottom:8px;}
   .event-panel .price-panel-note{margin-bottom:20px;}
   .event-panel .btn{margin-top:8px;}
 
   /* ---------- PRICE — spec §5((추가) 항목, 컨테이너 규칙 그대로) ---------- */
   .price{background:var(--c-white); padding-block:var(--sec-y-lg);}
   .price-tabs{display:flex; gap:8px; justify-content:center; margin-bottom:32px; flex-wrap:wrap;}
-  .price-tab{height:36px; padding:0 20px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-text-body); cursor:pointer; background:transparent;}
+  .price-tab{height:36px; padding:0 20px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--c-border); font-family:var(--ff-display); font-weight:600; font-size:var(--fs-btn); letter-spacing:var(--ls-btn); text-transform:uppercase; color:var(--c-text-body); cursor:pointer; background:transparent;}
   .price-tab.active{background:var(--c-text); border-color:var(--c-text); color:#fff;}
   .price-panel{display:none;}
   .price-panel.active{display:block;}
@@ -354,7 +354,7 @@
   .price-row{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text);}
   .price-row:last-of-type{border-bottom:none;}
   .price-badge{display:inline-block; margin-left:8px; padding:2px 8px; border:1px solid var(--c-rule); font-size:10px; letter-spacing:.03em; color:var(--c-text-body); vertical-align:middle;}
-  .price-row .p-val{font-family:var(--ff-display); color:var(--c-text); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .price-row .p-val{font-family:var(--ff-display); font-weight:600; color:var(--c-text); white-space:nowrap; font-variant-numeric:tabular-nums;}
   .price-panel-note{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); padding:16px 0 8px; line-height:var(--lh-body);}
   .price-tip{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); padding:14px 0; line-height:var(--lh-body); border-top:1px solid var(--c-border); margin-top:12px;}
   .price-tip strong{color:var(--c-text); font-weight:600;}
@@ -379,7 +379,7 @@
   .store-photo::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); z-index:0;}
   .store-photo img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover; border-radius:0; filter:saturate(.9); display:block;}
   .store-card{position:relative; z-index:2; background:#fff; border:1px solid var(--c-border); margin-left:-84px; padding:48px 44px;}
-  .store-eyebrow{display:block; font-family:var(--ff-body); font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-text-body); margin-bottom:16px;}
+  .store-eyebrow{display:block; font-family:var(--ff-display); font-weight:600; font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-text-body); margin-bottom:16px;}
   .store-heading{display:flex; align-items:center; gap:18px; margin-bottom:16px;}
   .store-heading h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); white-space:nowrap;}
   .store-heading-rule{flex:1; height:1px; background:var(--c-rule);}
@@ -426,7 +426,7 @@
   .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px;}
   .footer-brand{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-bg); margin-bottom:12px;}
   .footer-desc{font-family:var(--ff-body); font-size:var(--fs-check); color:rgba(248,246,242,.55); line-height:var(--lh-body);}
-  footer .col-title{font-family:var(--ff-body); font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); color:rgba(248,246,242,.45); margin-bottom:14px; text-transform:uppercase;}
+  footer .col-title{font-family:var(--ff-display); font-weight:600; font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); color:rgba(248,246,242,.45); margin-bottom:14px; text-transform:uppercase;}
   footer ul{list-style:none;}
   footer li{margin-bottom:9px; font-family:var(--ff-body); font-size:var(--fs-body);}
   footer a:hover{color:var(--c-accent);}
