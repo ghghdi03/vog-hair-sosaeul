@@ -64,6 +64,12 @@
   /* Measure — 가로 "위치"(.container)와 별개인, 텍스트 블록의 읽기 좋은 줄 길이 */
   --measure-lead: 620px;  /* 대형 헤드라인 */
   --measure-body: 560px;  /* 본문 문단 */
+
+  /* 아치형 사진 예외 — spec §7 개정(2026-xx-xx), 히어로 pill 버튼과 동일한 성격의
+     border-radius 예외. 가로 반경 50%(폭의 절반) / 세로 반경 40%(4:5 비율 이미지에서
+     폭의 절반을 높이 기준 %로 환산한 값) = 진짜 반원 아치. 디자이너 프로필·갤러리
+     사진에만 적용, 히어로·매장소개 사진에는 적용하지 않음. */
+  --radius-arch: 50% 50% 0 0 / 40% 40% 0 0;
 }
 
 /* ---- Typeface roles (spec §2 표 + 1-1 폰트 교체 반영) ---- */
@@ -258,8 +264,8 @@
   }
 
   .designer-media{position:relative;}
-  .designer-media img{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:0; filter:saturate(.9);}
-  .designer-band.even .designer-media::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); z-index:0;}
+  .designer-media img{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-arch); filter:saturate(.9);}
+  .designer-band.even .designer-media::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); border-radius:var(--radius-arch); z-index:0;}
 
   /* ---------- 대형 숫자 — spec §4.2, §6(반응형 40/56/72px) ---------- */
   .item-num{font-family:var(--ff-display); font-size:40px; color:var(--c-numeral); line-height:1;}
@@ -288,7 +294,7 @@
   .gallery{padding-block:var(--sec-y-lg); background:var(--c-white);}
   .style-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .style-card{cursor:pointer;}
-  .style-card .s-photo{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:0; filter:saturate(.9); transition:opacity .2s ease;}
+  .style-card .s-photo{display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-arch); filter:saturate(.9); transition:opacity .2s ease;}
   .style-card:hover .s-photo{opacity:.85;}
   .style-card .s-title{margin-top:12px; font-family:var(--ff-body); font-weight:300; font-size:var(--fs-body); color:var(--c-text-body); text-align:center;}
   @media(max-width:1023px){ .style-grid{grid-template-columns:repeat(2,1fr);} }
