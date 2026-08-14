@@ -397,8 +397,9 @@
      ⚠️ .location padding-block, loc-grid 비율/gap: spec에 전용 수치 없음, 임시값. */
   .location{background:var(--c-cream); padding-block:var(--sec-y-lg);}
   .loc-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:stretch;}
-  .loc-map{min-height:360px;}
-  .loc-map iframe{width:100%; height:100%; min-height:360px; border:0; display:block; filter:saturate(.9);}
+  .loc-map{min-height:360px; display:block; position:relative; overflow:hidden;}
+  .loc-map iframe{width:100%; height:100%; min-height:360px; border:0; display:block; filter:saturate(.9); pointer-events:none;}
+  .loc-map:hover iframe{opacity:.85;}
   .loc-info h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text); margin-bottom:20px;}
   .loc-info .row{display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--c-border); font-family:var(--ff-body); font-size:var(--fs-body); color:var(--c-text-body);}
   .loc-info .row:last-of-type{border-bottom:none;}
