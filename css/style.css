@@ -263,9 +263,33 @@
     .designer-copy .btn{order:4;}
   }
 
-  .designer-media{position:relative;}
+  .designer-media{position:relative; cursor:pointer;}
   .designer-media img{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius-arch); filter:saturate(.9);}
   .designer-band.even .designer-media::before{content:''; position:absolute; inset:0; transform:translate(8px,8px); border:1px solid var(--c-border); border-radius:var(--radius-arch); z-index:0;}
+  .designer-media:hover img{filter:saturate(1);}
+  .designer-media:focus-visible{outline:2px solid var(--c-accent); outline-offset:4px;}
+
+  /* ===== 디자이너 프로필 모달 — spec §7: box-shadow 대신 border ===== */
+  .designer-modal{position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:24px;}
+  .designer-modal.open{display:flex;}
+  .designer-modal-overlay{position:absolute; inset:0; background:rgba(61,52,44,.55); backdrop-filter:blur(2px);}
+  .designer-modal-box{position:relative; background:var(--c-bg); max-width:680px; width:100%; max-height:88vh; overflow-y:auto; display:grid; grid-template-columns:1fr 1.3fr; border:1px solid var(--c-border);}
+  .designer-modal-photo{aspect-ratio:4/5; background-size:cover; background-position:center; background-color:var(--c-cream);}
+  .designer-modal-body{padding:32px 28px; display:flex; flex-direction:column;}
+  .designer-modal-heading h3{font-family:var(--ff-display-ko); font-weight:400; font-size:var(--fs-h3); color:var(--c-text);}
+  .designer-modal-title{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); display:block; margin-top:4px;}
+  .designer-modal-bio{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-text-body); margin-top:16px;}
+  .designer-modal-section{margin-top:20px;}
+  .designer-modal-section h4{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-eyebrow); letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-text-body); margin-bottom:8px;}
+  .designer-modal-tags{list-style:none; display:flex; flex-wrap:wrap; gap:6px;}
+  .designer-modal-tags li{font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text); border:1px solid var(--c-border); padding:4px 10px; border-radius:2px;}
+  .designer-modal-list{list-style:none;}
+  .designer-modal-list li{position:relative; padding-left:14px; font-family:var(--ff-body); font-size:var(--fs-check); color:var(--c-text-body); margin-bottom:4px;}
+  .designer-modal-list li::before{content:'—'; position:absolute; left:0; color:var(--c-accent);}
+  .designer-modal-body .btn{margin-top:24px; align-self:flex-start;}
+  .designer-modal-close{position:absolute; top:14px; right:14px; z-index:2; width:32px; height:32px; border-radius:50%; background:var(--c-bg); border:1px solid var(--c-border); font-size:20px; line-height:1; color:var(--c-text); cursor:pointer;}
+  .designer-modal-close:hover{background:var(--c-white);}
+  @media(max-width:640px){ .designer-modal-box{grid-template-columns:1fr;} .designer-modal-photo{aspect-ratio:16/9;} }
 
   /* ---------- 대형 숫자 — spec §4.2, §6(반응형 40/56/72px) ---------- */
   .item-num{font-family:var(--ff-display); font-weight:600; font-size:40px; color:var(--c-numeral); line-height:1;}

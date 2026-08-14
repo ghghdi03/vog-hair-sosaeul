@@ -190,6 +190,35 @@
   </div>
 </div>
 
+<!-- ===== DESIGNER PROFILE MODAL ===== -->
+<div class="designer-modal" id="designerModal" aria-hidden="true">
+  <div class="designer-modal-overlay" id="designerModalOverlay"></div>
+  <div class="designer-modal-box" role="dialog" aria-modal="true">
+    <button class="designer-modal-close" id="designerModalClose" aria-label="닫기">&times;</button>
+    <div class="designer-modal-photo" id="designerModalPhoto"></div>
+    <div class="designer-modal-body">
+      <div class="designer-modal-heading">
+        <h3 id="designerModalName"></h3>
+        <span class="designer-modal-title" id="designerModalTitle"></span>
+      </div>
+      <p class="designer-modal-bio" id="designerModalBio"></p>
+      <div class="designer-modal-section" id="designerModalStylesWrap">
+        <h4>시그니처 스타일</h4>
+        <ul class="designer-modal-tags" id="designerModalStyles"></ul>
+      </div>
+      <div class="designer-modal-section" id="designerModalCareerWrap">
+        <h4>이력</h4>
+        <ul class="designer-modal-list" id="designerModalCareer"></ul>
+      </div>
+      <div class="designer-modal-section" id="designerModalCertWrap">
+        <h4>자격증·교육</h4>
+        <ul class="designer-modal-list" id="designerModalCert"></ul>
+      </div>
+      <a class="btn btn--solid" id="designerModalReserve" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="designer_modal">예약하기</a>
+    </div>
+  </div>
+</div>
+
 <!-- ===== PRICE — spec §5((추가) 가격표, 컨테이너 규칙 그대로) ===== -->
 <section class="section-head-block" id="pricing">
   <div class="container">
@@ -371,6 +400,10 @@ const DESIGNERS = [
     specialty: "1:1 맞춤상담으로 간결한 텍스쳐/열펌 전문/복구전문",
     checklist: ["1:1 맞춤상담으로 간결한 텍스쳐", "열펌 전문", "복구전문"],
     desc: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
+    bio: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
+    signatureStyles: ["맨즈펌", "아이롱펌", "씨스루컷"],
+    career: [],
+    certifications: ["로레알 컬러 탤런트 디플로마", "VOG 올클래스", "비달사순 베이직", "레핏 컬러 디플로마"],
     reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908059",
     instagram: CONFIG.instagram,
     photo: "images/designers/리나실장.jpg",
@@ -381,6 +414,10 @@ const DESIGNERS = [
     specialty: "맨즈 1:1 맞춤 스타일 전문, 조각 다운펌, 아이롱펌 재방문률 95%",
     checklist: ["맨즈 1:1 맞춤 스타일 전문", "조각 다운펌", "아이롱펌 재방문률 95%"],
     desc: "고객님과의 의사소통으로 인해서 니즈를 파악해 두상과 얼굴형에 맞게 보다 아름다운 머리로 보답해 드리겠습니다.",
+    bio: "고객님과의 의사소통을 통해 니즈를 파악하고, 두상과 얼굴형에 맞는 보다 아름다운 머리로 보답해 드리겠습니다. 레이어드 전문으로 섬세한 상담과 재방문률 95%의 신뢰를 쌓아왔습니다.",
+    signatureStyles: ["맨즈 1:1 맞춤 스타일", "조각 다운펌", "아이롱펌", "레이어드컷"],
+    career: ["준오헤어 더현대점", "박승철헤어스튜디오 영등포 홈플러스점"],
+    certifications: ["로레알 어드밴스 컷 디플로마", "로레알 컬러 디플로마", "진솔사 베이직 컷 디플로마", "비달사순 ABC 컷 디플로마", "비달사순 살롱 트렌드 코스", "박승철아카데미 수료"],
     reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908060",
     instagram: CONFIG.instagram,
     photo: "images/designers/섭실장.jpg",
@@ -391,6 +428,10 @@ const DESIGNERS = [
     specialty: "모질맞춤열펌장인/트렌디한 컬러연출",
     checklist: ["모질맞춤열펌장인", "트렌디한 컬러연출", "20년의 경험, 한 사람을 위한 섬세한 디자인"],
     desc: "손질은 편하게, 매일의 아름다움은 오래도록.<br>사람을 디자인하는 류시아입니다.",
+    bio: "손질은 편하게, 매일의 아름다움은 오래도록. 사람을 디자인하는 류시아입니다. 모질맞춤열펌과 트렌디한 컬러 연출을 전문으로 하며, 한 사람 한 사람을 위한 섬세한 디자인을 추구합니다.",
+    signatureStyles: ["모질맞춤열펌", "트렌디 컬러"],
+    career: ["부천역 보그헤어 부원장(전)", "철산역 보그헤어 원장(전)", "소새울역 보그헤어 원장(현)"],
+    certifications: ["사이리즘 컷 마스터교육", "국제 두피관리사 자격증", "WELLA 컬러캠프", "비달사순 베이직 디플로마", "하성기아카데미 디플로마", "MBA 인재교육", "스파릴링교육 이수", "영국 세계미용박람회 참여", "레삐 컬러공모전 2등"],
     reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908055",
     instagram: CONFIG.instagram,
     photo: "images/designers/류시아원장.jpg",
@@ -547,7 +588,7 @@ function renderDesigners(){
     return `
     <div class="designer-band ${parity} reveal">
       <div class="container designer-row">
-        <div class="designer-media">
+        <div class="designer-media" data-idx="${i}" role="button" tabindex="0" aria-label="${d.name} 프로필 보기">
           <img src="${d.photo}" alt="${d.name}" loading="lazy">
         </div>
         <div class="designer-copy">
@@ -567,6 +608,65 @@ function renderDesigners(){
       </div>
     </div>`;
   }).join('');
+  grid.addEventListener('click', (e) => {
+    const media = e.target.closest('.designer-media');
+    if(!media) return;
+    openDesignerModal(DESIGNERS[Number(media.dataset.idx)]);
+  });
+  grid.addEventListener('keydown', (e) => {
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    const media = e.target.closest('.designer-media');
+    if(!media) return;
+    e.preventDefault();
+    openDesignerModal(DESIGNERS[Number(media.dataset.idx)]);
+  });
+}
+
+function openDesignerModal(d){
+  const modal = document.getElementById('designerModal');
+  document.getElementById('designerModalPhoto').style.backgroundImage = `url('${d.photo}')`;
+  document.getElementById('designerModalName').textContent = d.name;
+  document.getElementById('designerModalTitle').textContent = d.title || '';
+  document.getElementById('designerModalBio').innerHTML = d.bio || d.desc || '';
+
+  const stylesWrap = document.getElementById('designerModalStylesWrap');
+  const stylesList = document.getElementById('designerModalStyles');
+  if(d.signatureStyles && d.signatureStyles.length){
+    stylesList.innerHTML = d.signatureStyles.map(item => `<li>${item}</li>`).join('');
+    stylesWrap.style.display = '';
+  } else { stylesWrap.style.display = 'none'; }
+
+  const careerWrap = document.getElementById('designerModalCareerWrap');
+  const careerList = document.getElementById('designerModalCareer');
+  if(d.career && d.career.length){
+    careerList.innerHTML = d.career.map(item => `<li>${item}</li>`).join('');
+    careerWrap.style.display = '';
+  } else { careerWrap.style.display = 'none'; }
+
+  const certWrap = document.getElementById('designerModalCertWrap');
+  const certList = document.getElementById('designerModalCert');
+  if(d.certifications && d.certifications.length){
+    certList.innerHTML = d.certifications.map(item => `<li>${item}</li>`).join('');
+    certWrap.style.display = '';
+  } else { certWrap.style.display = 'none'; }
+
+  document.getElementById('designerModalReserve').href = resolveReserveHref(d.reserveUrl);
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDesignerModal(){
+  const modal = document.getElementById('designerModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function initDesignerModal(){
+  document.getElementById('designerModalOverlay').addEventListener('click', closeDesignerModal);
+  document.getElementById('designerModalClose').addEventListener('click', closeDesignerModal);
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDesignerModal(); });
 }
 
 function renderStyles(){
@@ -765,6 +865,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initEventBinding();
   initStyleModal();
+  initDesignerModal();
 });
 </script>
 
