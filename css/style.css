@@ -216,6 +216,10 @@
   @media (min-width:481px) and (max-width:767px){ .statement-lead{font-size:24px;} }
   @media (min-width:768px){ .statement-lead{font-size:30px;} }
 
+  /* ⚠️ 배경색 --c-cream: 리뷰(화이트 계열) 다음 섹션 구분을 위한 임시값 */
+  .consult-cta{background:var(--c-cream);}
+  .consult-cta .section-subtitle{margin-top:24px;}
+
   /* ---------- SECTION HEAD ---------- */
   .sec-head{text-align:center; max-width:640px; margin:0 auto 52px;}
   .sec-head h2{font-size:clamp(26px,3.8vw,38px); padding-bottom:20px; position:relative; margin-bottom:18px; text-wrap:balance;}
@@ -234,6 +238,7 @@
   .section-head-block{padding-block:var(--sec-y-lg); background:var(--c-white);}
   .section-title{font-family:var(--ff-display); font-weight:600; font-size:var(--fs-section); letter-spacing:var(--ls-section); text-transform:uppercase; color:var(--c-text); text-align:center;}
   .section-subtitle{font-family:var(--ff-body); font-weight:400; font-size:var(--fs-body); color:var(--c-text-body); text-align:center; margin-top:12px;}
+  .section-checklist{width:max-content; max-width:100%; margin:20px auto 0; text-align:left;}
 
   /* ---------- DESIGNERS — spec §3(지그재그+배경 밴드), §4.2, §4.4, §4.5 ----------
      ⚠️ designer-band padding, heading-row gap, rule 폭 65%(60~70% 범위 내 임의 선택),
