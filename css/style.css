@@ -74,9 +74,9 @@
 
 /* ---- Typeface roles (spec §2 표 + 1-1 폰트 교체 반영) ---- */
 :root {
-  --ff-display:    'Plus Jakarta Sans', sans-serif;    /* 영문 포인트 */
-  --ff-display-ko: 'Gowun Dodum', sans-serif;          /* 메인 제목(한글) */
-  --ff-body:       'Gowun Dodum', sans-serif;          /* 본문 */
+  --ff-display:    'Plus Jakarta Sans', sans-serif;                    /* 영문 포인트(카테고리/라벨) — 폰트 변경 제외 */
+  --ff-display-ko: 'Pretendard Variable', 'Pretendard', sans-serif;    /* 메인 제목(한글) */
+  --ff-body:       'Pretendard Variable', 'Pretendard', sans-serif;    /* 본문 */
 }
 
 /* =========================================================
