@@ -248,13 +248,21 @@
 </section>
 
 <section class="event">
-  <div class="container measure-body">
-    <div class="event-panel reveal">
-      <div class="event-badge">EVENT</div>
-      <h3>네이버예약 시 전 메뉴<br>30% 할인</h3>
-      <p class="event-desc">네이버예약으로 예약하고 방문하시면 전 메뉴 30% 할인가로 이용하실 수 있습니다.</p>
-      <p class="price-panel-note">* 프리미엄 시술 등 일부 메뉴는 실제 할인율이 다를 수 있습니다.<br>정확한 금액은 네이버예약 화면에서 확인해주세요.</p>
-      <a class="btn btn--solid" id="reserveEventBtn" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="event">네이버예약하기</a>
+  <div class="container">
+    <div class="event-grid">
+      <div class="event-panel reveal">
+        <div class="event-badge">EVENT 1</div>
+        <h3>첫방문컷<br>15,000원</h3>
+        <p class="event-desc">보그헤어 소새울역점을 처음 찾아주시는 고객님께 드리는 특별 컷 가격입니다.</p>
+        <a class="btn btn--solid" id="reserveEventBtn1" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="event_cut">네이버예약하기</a>
+      </div>
+      <div class="event-panel reveal">
+        <div class="event-badge">EVENT 2</div>
+        <h3>첫방문 시술<br>50% 할인</h3>
+        <p class="event-desc">첫방문 고객님께 드리는 전 시술 반값 혜택입니다.</p>
+        <p class="price-panel-note">* 부분시술은 할인 대상에서 제외됩니다.</p>
+        <a class="btn btn--solid" id="reserveEventBtn2" target="_blank" rel="noopener" data-ga-event="reserve_click" data-location="event_discount">네이버예약하기</a>
+      </div>
     </div>
   </div>
 </section>
@@ -423,18 +431,18 @@ function resolveReserveHref(url){
 //     파일이 없거나 경로가 틀리면 자동으로 기존 이니셜 그래픽으로 대체됩니다.
 const DESIGNERS = [
   {
-    name: "리나 실장",
-    title: "실장",
-    specialty: "1:1 맞춤상담으로 간결한 텍스쳐/열펌 전문/복구전문",
-    checklist: ["1:1 맞춤상담으로 간결한 텍스쳐", "열펌 전문", "복구전문"],
-    desc: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
-    bio: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
-    signatureStyles: ["맨즈펌", "아이롱펌", "시스루컷"],
-    career: [],
-    certifications: ["로레알 컬러 디플로마", "VOG ACADEMY 올 클래스 수료", "비달사순 베이직 디플로마", "레삐 컬러 디플로마"],
-    reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908059",
+    name: "류시아 대표원장",
+    title: "대표원장",
+    specialty: "모질맞춤열펌장인/트렌디한 컬러연출",
+    checklist: ["모질맞춤열펌장인", "트렌디한 컬러연출", "20년의 경험, 한 사람을 위한 섬세한 디자인"],
+    desc: "고객 한 분 한 분의 얼굴형, 모질, 손상도, 평소 손질 습관까지 고려해 집에서도 손질하기 편하고 만족도가 높은 스타일을 디자인합니다.",
+    bio: "손질은 편하게, 매일의 아름다움은 오래도록. 사람을 디자인하는 류시아입니다. 모질맞춤열펌과 트렌디한 컬러 연출을 전문으로 하며, 한 사람 한 사람을 위한 섬세한 디자인을 추구합니다.",
+    signatureStyles: ["모질맞춤열펌", "트렌디 컬러"],
+    career: ["부천역 보그헤어 부원장(전)", "철산역 보그헤어 원장(전)", "소새울역 보그헤어 원장(현)"],
+    certifications: ["사이리즘 컷 마스터교육", "국제 두피관리사 자격증", "WELLA 컬러캠프", "비달사순 베이직 디플로마", "하성기아카데미 디플로마", "MBA 인재교육", "스파릴링교육 이수", "영국 세계미용박람회 참여", "레삐 컬러공모전 2등"],
+    reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908055",
     instagram: CONFIG.instagram,
-    photo: "images/designers/리나실장.jpg",
+    photo: "images/designers/류시아원장.jpg",
   },
   {
     name: "섭 실장",
@@ -451,18 +459,18 @@ const DESIGNERS = [
     photo: "images/designers/섭실장.jpg",
   },
   {
-    name: "류시아 대표원장",
-    title: "대표원장",
-    specialty: "모질맞춤열펌장인/트렌디한 컬러연출",
-    checklist: ["모질맞춤열펌장인", "트렌디한 컬러연출", "20년의 경험, 한 사람을 위한 섬세한 디자인"],
-    desc: "고객 한 분 한 분의 얼굴형, 모질, 손상도, 평소 손질 습관까지 고려해 집에서도 손질하기 편하고 만족도가 높은 스타일을 디자인합니다.",
-    bio: "손질은 편하게, 매일의 아름다움은 오래도록. 사람을 디자인하는 류시아입니다. 모질맞춤열펌과 트렌디한 컬러 연출을 전문으로 하며, 한 사람 한 사람을 위한 섬세한 디자인을 추구합니다.",
-    signatureStyles: ["모질맞춤열펌", "트렌디 컬러"],
-    career: ["부천역 보그헤어 부원장(전)", "철산역 보그헤어 원장(전)", "소새울역 보그헤어 원장(현)"],
-    certifications: ["사이리즘 컷 마스터교육", "국제 두피관리사 자격증", "WELLA 컬러캠프", "비달사순 베이직 디플로마", "하성기아카데미 디플로마", "MBA 인재교육", "스파릴링교육 이수", "영국 세계미용박람회 참여", "레삐 컬러공모전 2등"],
-    reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908055",
+    name: "리나 실장",
+    title: "실장",
+    specialty: "1:1 맞춤상담으로 간결한 텍스쳐/열펌 전문/복구전문",
+    checklist: ["1:1 맞춤상담으로 간결한 텍스쳐", "열펌 전문", "복구전문"],
+    desc: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
+    bio: "고객 한 분, 한 분의 분위기와 라이프스타일을 담아 가장 자연스럽고 아름다운 스타일을 디자인합니다.",
+    signatureStyles: ["맨즈펌", "아이롱펌", "시스루컷"],
+    career: [],
+    certifications: ["로레알 컬러 디플로마", "VOG ACADEMY 올 클래스 수료", "비달사순 베이직 디플로마", "레삐 컬러 디플로마"],
+    reserveUrl: "https://m.booking.naver.com/booking/13/bizes/274795/items/5908059",
     instagram: CONFIG.instagram,
-    photo: "images/designers/류시아원장.jpg",
+    photo: "images/designers/리나실장.jpg",
   },
   // 디자이너 추가 시 여기에 객체만 추가하면 카드가 자동 생성됩니다.
 ];
@@ -818,7 +826,7 @@ function renderFaq(){
 
 function bindReserveButtons(){
   const href = resolveReserveHref(CONFIG.defaultReserveUrl);
-  ['reserveHeaderBtn','reserveMobileBtn','reserveHeroBtn','reserveFinalBtn','reserveEventBtn'].forEach(id => {
+  ['reserveHeaderBtn','reserveMobileBtn','reserveHeroBtn','reserveFinalBtn','reserveEventBtn1','reserveEventBtn2'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.href = href;
   });
